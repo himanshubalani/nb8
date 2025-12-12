@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoBrutal UI</title>
+    <!-- Tailwind via CDN for quick local prototyping without complex setup -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@700&family=Outfit:wght@400;700&family=Public+Sans:wght@400;600&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              outfit: ['Outfit', 'sans-serif'],
+              quicksand: ['Quicksand', 'sans-serif'],
+              lexend: ['Lexend Mega', 'sans-serif'],
+              public: ['Public Sans', 'sans-serif'],
+            },
+            boxShadow: {
+              'neo': '4px 4px 0px 0px rgba(0,0,0,1)',
+              'neo-sm': '2px 2px 0px 0px rgba(0,0,0,1)',
+              'neo-lg': '8px 8px 0px 0px rgba(0,0,0,1)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F0F4F7;
+      }
+      /* Custom scrollbar to match the brutalist aesthetic */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f8f9fa;
+        border-left: 2px solid #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #000;
+        border: 2px solid #000;
+        border-radius: 6px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #90a8ed;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "vite": "https://esm.sh/vite@^7.2.7",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- Entry point for Vite -->
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
