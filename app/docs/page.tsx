@@ -13,7 +13,13 @@ import CodeBlock from '../../components/CodeBlock';
 
 
 
-const Section = ({ id, title, description, children }: any) => (
+interface SectionProps {
+  id: string;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}
+const Section = ({ id, title, description, children }: SectionProps) => (
   <section id={id} className="bg-white border-2 border-black shadow-neo rounded-2xl p-6 mb-6 scroll-mt-24">
     <h2 className="font-quicksand text-3xl font-bold mb-4  inline-block">{title}</h2>
     <p className="font-public text-gray-600 mb-8 text-lg">{description}</p>
@@ -191,7 +197,7 @@ color={AppColors.paleYellow}
         <Section id='CodeBlocks' title='Code Blocks' description='Used for showing code snippets'>
             <CodeBlock language='html' code='<p>This is a Code Block. This is how your code would look. You can specify the language you are typing. No auto type right now. You can copy the code to clipboard.'/>
         </Section>
-        
+
     </div>
   );
 }
