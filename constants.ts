@@ -28,7 +28,7 @@ export const AppColors = {
   lightLimeGreen: '#BAFCA2',
   brightOrange: '#FFDB58',
   coralRed: '#FFA07A',
-  softPink: '#FFFFC0CB',
+  softPink: '#FFC0CB',
   palePurple: '#C4A1FF',
 
   // Row 3
@@ -36,8 +36,8 @@ export const AppColors = {
   toolJetBlue: 'rgb(64, 117, 239)',
   lightGreen: '#90EE90',
   mustardYellow: '#F4D738',
-  tomatoRed: '#FFFF7A5C',
-  lavenderPink: '#FFFFB2EF',
+  tomatoRed: '#FF7A5C',
+  lavenderPink: '#FFB2EF',
   darkPurple: '#A388EE',
 
   // Row 4
@@ -71,6 +71,8 @@ export const LanguageColors: Record<string, string> = {
   "Tailwind": "#38B2AC",
   "Git": "#FA5E3C",
   "Next.js": "#000000", // White text usually
+  "Design": "#EDD590",
+  "Coding": "#A8ED90",
   "Designing ᵈ": "#EDD590",
   "Coding ᶜ": "#A8ED90",
   "Engineering": "#ED90A8",

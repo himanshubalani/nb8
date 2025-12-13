@@ -9,7 +9,7 @@ export default function Home() {
 
   const handleDocsClick = () => {
     push('/docs');
-    window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 0);  
   };
 
   return (

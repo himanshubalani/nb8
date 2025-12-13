@@ -24,7 +24,8 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const isDark = isDarkColor(color);
   return (
-    <div 
+    <button
+    type="button"
       onClick={onClick}
       className={`
         ${width} ${height} ${className}
@@ -40,6 +41,6 @@ export const Button: React.FC<ButtonProps> = ({
       <span className="font-outfit font-bold text-lg md:text-xl p-4">
         {children}
       </span>
-    </div>
+    </button>
   );
 };

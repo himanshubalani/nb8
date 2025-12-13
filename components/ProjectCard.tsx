@@ -7,6 +7,7 @@ export interface ProjectCardProps {
   projectName: string;
   description: string;
   imagePath: string;
+  imagealt: string;
   projectLink: string;
   languages: string[];
   buttonText: string;
@@ -17,6 +18,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   projectName,
   description,
   imagePath,
+  imagealt,
   projectLink,
   languages,
   buttonText,
@@ -28,7 +30,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="h-40 w-full overflow-hidden border-b-2 border-black bg-gray-100 relative">
         <img 
           src={imagePath} 
-          alt={projectName} 
+          alt={imagealt || `${projectName} preview`}  
           className="w-full h-full object-cover"
         />
       </div>
@@ -36,7 +38,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       {/* Header */}
       <div className="p-3 border-b-2 border-black bg-white flex items-center gap-2">
         {logoPath && (
-          <img src={logoPath} alt="logo" className="w-8 h-8 rounded-md border border-black" />
+          <img src={logoPath} alt={`${projectName} logo`} className="w-8 h-8 rounded-md border border-black" />
         )}
         <h3 className="font-outfit font-bold text-xl text-black truncate">{projectName}</h3>
       </div>
@@ -61,18 +63,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <a 
           href={projectLink} 
           target="_blank" 
-          rel="noreferrer"
-          className="block w-full"
-        >
-          <div className="
-            w-full py-2 bg-black text-white text-center font-outfit font-bold rounded-xl
-            border-2 border-black
-            transition-all hover:bg-white hover:text-black
-          ">
+          rel="noopener noreferrer"  
+          className="  
++            block w-full py-2 bg-black text-white text-center font-outfit font-bold rounded-xl  
++            border-2 border-black  
++            transition-all hover:bg-white hover:text-black" 
+>
             {buttonText}
-          </div>
-        </a>
-      </div>
-    </div>
+            </a>
+        </div>
+</div>
   );
 };

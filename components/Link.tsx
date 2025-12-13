@@ -13,7 +13,7 @@ export const Link: React.FC<LinkProps> = ({ href, children, className, onClick, 
     e.preventDefault();
     if (onClick) onClick(e);
     push(href);
-    window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 0);
   };
 
   return (

@@ -11,8 +11,8 @@ export default function RootLayout({
       {/* Navigation Bar extracted to Header component to isolate useRouter context usage */}
       <Header />
 
-      {/* Spacer for fixed header */}
-      <div className="h-20 md:h-24"></div>
+{/* Spacer for fixed header */}  
+      <div className="h-16 md:h-20"></div>  
 
       {/* Page Content */}
       <main>
