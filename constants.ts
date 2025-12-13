@@ -3,7 +3,6 @@ export const AppColors = {
   // Primary
   primaryPurple: '#90a8ed',
 
-
   // Social / Brand
   email: '#EA4335',
   linkedin: '#0077b5',
@@ -15,7 +14,6 @@ export const AppColors = {
   sessionize: '#1AB394',
   orchid: '#A1C837',
 
-
   // Pastels & Accents
   lightTeal: '#DAF5F0',
   paleGreen: '#B5D2AD',
@@ -23,8 +21,7 @@ export const AppColors = {
   lightPeach: '#F8D6B3',
   lightPink: '#FCDFFF',
   lightLavender: '#E3DFF2',
-
-
+  
   // Row 2
   lightBlue: '#B4D6F8',
   mediumTeal: '#A7DBD8',
@@ -34,7 +31,6 @@ export const AppColors = {
   softPink: '#FFFFC0CB',
   palePurple: '#C4A1FF',
 
-
   // Row 3
   skyBlue: '#93D6F1',
   toolJetBlue: 'rgb(64, 117, 239)',
@@ -43,7 +39,6 @@ export const AppColors = {
   tomatoRed: '#FFFF7A5C',
   lavenderPink: '#FFFFB2EF',
   darkPurple: '#A388EE',
-
 
   // Row 4
   royalBlue: '#8DA6F5',
@@ -55,13 +50,11 @@ export const AppColors = {
   darkViolet: '#9723C9',
   deepSaffron: '#FFA500',
 
-
   // Standard
   white: '#FFFFFF', // Adjusted from F0F0F0 for better contrast on web
   black: '#121212',
   offwhite: '#F0F4F7',
 };
-
 
 export const LanguageColors: Record<string, string> = {
   "Python": "#FFE873",
