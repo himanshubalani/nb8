@@ -1,6 +1,11 @@
 /**
- * Returns true if a hex color is visually dark
- * Uses perceived luminance (WCAG-inspired)
+ * Determines whether a hex color is visually dark.
+ *
+ * Accepts 3- or 6-digit hex strings, with or without a leading `#`. Returns `false`
+ * for falsy or otherwise invalid hex inputs (not 3 or 6 hex digits).
+ *
+ * @param hex - Hex color string (e.g., `"#ff0000"`, `"f00"`, or `"ff0000"`)
+ * @returns `true` if the color's perceived luminance is less than 120, `false` otherwise.
  */
 export function isDarkColor(hex: string): boolean {
   if (!hex) return false;

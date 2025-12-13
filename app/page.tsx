@@ -4,6 +4,14 @@ import { AppColors } from '../constants';
 import { Button } from '../components/Button';
 import { useRouter } from '../components/lib/router-context';
 
+/**
+ * Render the site's homepage containing a hero card and a "Getting Started" teaser.
+ *
+ * The hero includes a prominent title, description, and a "Read Docs" button that navigates
+ * to the documentation page and resets scroll position to the top.
+ *
+ * @returns The JSX element that renders the homepage UI.
+ */
 export default function Home() {
   const { push } = useRouter();
 

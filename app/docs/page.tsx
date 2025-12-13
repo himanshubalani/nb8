@@ -33,6 +33,13 @@ const PreviewBox = ({ children, color = AppColors.gray50}: { children: React.Rea
   </div>
 );
 
+/**
+ * Render the documentation page displaying component previews, example code, and a sticky sidebar navigation.
+ *
+ * The component maintains which section is active and scrolls smoothly to a section when a sidebar item is selected.
+ *
+ * @returns The Docs page JSX element containing the sidebar navigation and main content sections with previews and code samples.
+ */
 export default function Docs() {
   const [activeSection, setActiveSection] = useState('buttons');
 
