@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '../components/Header';
-import { BottomBar }from '../components';
+import BottomBar from '../components/Bottombar';
 import { AppColors } from '../constants';
 
 export default function RootLayout({
