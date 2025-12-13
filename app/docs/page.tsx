@@ -13,7 +13,13 @@ import CodeBlock from '../../components/CodeBlock';
 
 
 
-const Section = ({ id, title, description, children }: any) => (
+interface SectionProps {
+  id: string;
+  title: string;
+  description: string;
+  children: React.ReactNode;
+}
+const Section = ({ id, title, description, children }: SectionProps) => (
   <section id={id} className="bg-white border-2 border-black shadow-neo rounded-2xl p-6 mb-6 scroll-mt-24">
     <h2 className="font-quicksand text-3xl font-bold mb-4  inline-block">{title}</h2>
     <p className="font-public text-gray-600 mb-8 text-lg">{description}</p>
@@ -113,7 +119,6 @@ export default function Docs() {
                 <p className="font-outfit text-sm">
                   I'm a Neo-Brutalist component living in a React world.
                   This box handles its own overflow and styling. Images work too. 
-                </p>
                 </p>
                 <img src="https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg" alt="Example image" />
               </Box>
