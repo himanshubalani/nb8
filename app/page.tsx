@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+
 import { AppColors } from '../constants';
 import { Button } from '../components/Button';
 import { useRouter } from '../components/lib/router-context';

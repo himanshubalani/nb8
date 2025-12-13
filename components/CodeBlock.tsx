@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { AppColors } from '../constants';
 
-const CodeBlock = ({
+export const CodeBlock = ({
   code,
   language,
   children,
@@ -19,54 +19,54 @@ const CodeBlock = ({
       await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
-    } catch {
-      // silently fail
-    }
+    } catch {}
   };
 
   return (
     <div
       className="
-        relative mt-4
+        relative mt-6
         rounded-lg border-2 border-black
-        p-4 overflow-x-auto
+        p-4
         shadow-neo-sm
+        overflow-visible
       "
       style={{ backgroundColor: AppColors.white }}
     >
-      {/* Top-right controls */}
-      <div className="absolute top-3 right-3 flex items-center gap-2">
-        {/* Copy button */}
-        <button
-          onClick={handleCopy}
+      {/* Language badge — top-left */}
+      {language && (
+        <div
           className="
+            absolute -top-3 left-3
+            z-2
             px-2 py-1
-            text-xs font-semibold
+            text-sm font-semibold
             rounded-md border border-black
-            bg-white hover:bg-gray-100
-            transition
+            bg-white
+            select-none
           "
         >
-          {copied ? 'Copied' : 'Copy'}
-        </button>
+          {language}
+        </div>
+      )}
 
-        {/* Language box */}
-        {language && (
-          <div
-            className="
-              px-2 py-1
-              text-xs font-semibold
-              rounded-md border border-black
-              bg-white
-              select-none
-            "
-          >
-            {language}
-          </div>
-        )}
-      </div>
+      {/* Copy button — top-right */}
+      <button
+        onClick={handleCopy}
+        className="
+          absolute -top-2 -right-3
+          z-2
+          px-2 py-1
+          text-md font-semibold
+          rounded-md border border-black shadow-neo-sm hover:shadow-neo
+          bg-white hover:bg-gray-100
+          transition
+        "
+      >
+        {copied ? 'Copied' : 'Copy'}
+      </button>
 
-      <pre className="font-mono text-md text-black whitespace-pre">
+      <pre className="font-mono text-md text-black whitespace-pre text-wrap">
         {code}
       </pre>
 
@@ -74,5 +74,3 @@ const CodeBlock = ({
     </div>
   );
 };
-
-export default CodeBlock;

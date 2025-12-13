@@ -1,5 +1,7 @@
 import React from 'react';
 import { Header } from '../components/Header';
+import { BottomBar }from '../components';
+import { AppColors } from '../constants';
 
 export default function RootLayout({
   children,
@@ -7,7 +9,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#bfd5f1] text-[#121212] font-public">
+    <div className="min-h-screen text-[#121212] font-public"
+    style={{ backgroundColor: AppColors.lightLavender }}
+    >
       {/* Navigation Bar extracted to Header component to isolate useRouter context usage */}
       <Header />
 
@@ -20,16 +24,7 @@ export default function RootLayout({
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-black mt-20 py-10">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="font-outfit font-bold text-gray-800">
-            © {new Date().getFullYear()} NeoBrutal UI. Made with ❤️ by Himanshu Balani.
-          </p>
-          <p className="text-sm text-gray-500 mt-2">
-            Converted to React & Tailwind.
-          </p>
-        </div>
-      </footer>
+      <BottomBar/>
     </div>
   );
 }
