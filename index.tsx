@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, useRouter } from './lib/router-context';
+import { RouterProvider, useRouter } from './components/lib/router-context';
 import RootLayout from './app/layout';
 import HomePage from './app/page';
 import DocsPage from './app/docs/page';

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { Link } from './Link';
-import { useRouter } from '../lib/router-context';
+import { useRouter } from './lib/router-context';
 
 export const Header = () => {
   const { path } = useRouter();
@@ -13,7 +13,7 @@ export const Header = () => {
         {/* Logo */}
         <Link 
           href="/"
-          className="cursor-pointer font-lexend text-xl md:text-2xl font-black tracking-tight hover:scale-105 transition-transform"
+          className="cursor-pointer font-outfit text-xl md:text-2xl font-black tracking-tight hover:scale-105 transition-transform"
         >
           NEOBRUTAL<span className="text-[#40d39c]">.UI</span>
         </Link>

@@ -1,0 +1,57 @@
+'use client'
+
+import React from 'react';
+import { AppColors } from '../constants';
+import { isDarkColor } from '../app/utils/colors';
+
+interface AnchorButtonProps {
+  label: string;
+  icon?: React.ReactNode;
+  color?: string;
+  onClick?: () => void;
+  fullWidth?: boolean;
+}
+
+export const AnchorButton: React.FC<AnchorButtonProps> = ({ 
+  label, 
+  icon, 
+  color = AppColors.deepSaffron, 
+  onClick,
+  fullWidth = false
+}) => {
+  const isDark = isDarkColor(color);
+
+  return (
+    <button
+      onClick={onClick}
+      className={`
+        ${fullWidth ? 'w-full' : 'w-auto'}
+        flex items-center justify-between
+        px-4 py-3
+        rounded-[18px] border-[3px] border-black
+        font-quicksand font-bold
+        ${isDark ? 'text-white' : 'text-black'}
+        shadow-neo transition-transform duration-200
+        hover:-translate-y-0.5 hover:-translate-x-0.5
+        active:translate-y-[2px] active:translate-x-[2px] active:shadow-none
+      `}
+      style={{ backgroundColor: color }}
+    >
+      <div className="flex items-center gap-3">
+        {icon && (
+          <span className="w-5 h-5 flex items-center justify-center">
+            {icon}
+          </span>
+        )}
+        <span className="text-sm md:text-base">{label}</span>
+      </div>
+
+      <div
+        className={`
+          w-6 h-6 rounded-full border-2 border-black ml-4
+          ${isDark ? 'bg-white/70' : 'bg-white opacity-50'}
+        `}
+      />
+    </button>
+  );
+};
