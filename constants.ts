@@ -3,6 +3,7 @@ export const AppColors = {
   // Primary
   primaryPurple: '#90a8ed',
 
+
   // Social / Brand
   email: '#EA4335',
   linkedin: '#0077b5',
@@ -14,6 +15,7 @@ export const AppColors = {
   sessionize: '#1AB394',
   orchid: '#A1C837',
 
+
   // Pastels & Accents
   lightTeal: '#DAF5F0',
   paleGreen: '#B5D2AD',
@@ -21,24 +23,27 @@ export const AppColors = {
   lightPeach: '#F8D6B3',
   lightPink: '#FCDFFF',
   lightLavender: '#E3DFF2',
-  
+
+
   // Row 2
   lightBlue: '#B4D6F8',
   mediumTeal: '#A7DBD8',
   lightLimeGreen: '#BAFCA2',
   brightOrange: '#FFDB58',
   coralRed: '#FFA07A',
-  softPink: '#FFC0CB',
+  softPink: '#FFFFC0CB',
   palePurple: '#C4A1FF',
+
 
   // Row 3
   skyBlue: '#93D6F1',
   toolJetBlue: 'rgb(64, 117, 239)',
   lightGreen: '#90EE90',
   mustardYellow: '#F4D738',
-  tomatoRed: '#FF7A5C',
-  lavenderPink: '#FFB2EF',
+  tomatoRed: '#FFFF7A5C',
+  lavenderPink: '#FFFFB2EF',
   darkPurple: '#A388EE',
+
 
   // Row 4
   royalBlue: '#8DA6F5',
@@ -50,11 +55,13 @@ export const AppColors = {
   darkViolet: '#9723C9',
   deepSaffron: '#FFA500',
 
+
   // Standard
   white: '#FFFFFF', // Adjusted from F0F0F0 for better contrast on web
   black: '#121212',
   offwhite: '#F0F4F7',
 };
+
 
 export const LanguageColors: Record<string, string> = {
   "Python": "#FFE873",
@@ -71,8 +78,6 @@ export const LanguageColors: Record<string, string> = {
   "Tailwind": "#38B2AC",
   "Git": "#FA5E3C",
   "Next.js": "#000000", // White text usually
-  "Design": "#EDD590",
-  "Coding": "#A8ED90",
   "Designing ᵈ": "#EDD590",
   "Coding ᶜ": "#A8ED90",
   "Engineering": "#ED90A8",

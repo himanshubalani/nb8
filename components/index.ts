@@ -3,4 +3,4 @@ export * from './AnchorButton';
 export * from './Button';
 export * from './Badge';
 export * from './ProjectCard';
-export * from './SImpleCard';
+export * from './SimpleCard';

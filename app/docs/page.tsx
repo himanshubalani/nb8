@@ -13,13 +13,7 @@ import CodeBlock from '../../components/CodeBlock';
 
 
 
-interface SectionProps {
-  id: string;
-  title: string;
-  description: string;
-  children: React.ReactNode;
-}
-const Section = ({ id, title, description, children }: SectionProps) => (
+const Section = ({ id, title, description, children }: any) => (
   <section id={id} className="bg-white border-2 border-black shadow-neo rounded-2xl p-6 mb-6 scroll-mt-24">
     <h2 className="font-quicksand text-3xl font-bold mb-4  inline-block">{title}</h2>
     <p className="font-public text-gray-600 mb-8 text-lg">{description}</p>
@@ -27,14 +21,14 @@ const Section = ({ id, title, description, children }: SectionProps) => (
   </section>
 );
 
-const PreviewBox = ({ children }: { children: React.ReactNode }) => (
-  <div className="bg-gray-50 border-2 bg-gray/50 border-gray-200 rounded-xl p-8 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
+const PreviewBox = ({ children, color = AppColors.gray50}: { children: React.ReactNode }) => (
+  <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-8 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
     {children}
   </div>
 );
 
 export default function Docs() {
-  const [activeSection, setActiveSection] = useState('anchorbuttons');
+  const [activeSection, setActiveSection] = useState('buttons');
 
   const scrollTo = (id: string) => {
     setActiveSection(id);
@@ -44,7 +38,7 @@ export default function Docs() {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto p-4 md:p-8">
-      
+
       {/* Sidebar */}
       <aside className="lg:w-64 flex-shrink-0">
         <div className="sticky top-24 bg-white border-[3px] border-black rounded-xl p-4 overflow-y-auto max-h-[80vh]">
@@ -80,16 +74,15 @@ export default function Docs() {
 
       {/* Main Content */}
       <main className="flex-1 min-w-0">
-        
+
         <Section id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links">
           <PreviewBox>
             <AnchorButton label="Open in Github" color={AppColors.github} onClick={() => {}} />
             <AnchorButton label="Docs" color={AppColors.darkPurple} onClick={() => {}} />
             <AnchorButton label="Email me at hello@himanshubalani.com" color={AppColors.skyBlue} onClick={() => {}} />
           </PreviewBox>
-                    <CodeBlock language='js' code={`<AnchorButton label="Open in Github" color={AppColors.github} onClick={handleClick} />
-<AnchorButton label="Docs" color={AppColors.darkPurple} onClick={handleClick} />
-<AnchorButton label="Email me at hello@himanshubalani.com" color={AppColors.skyBlue} onClick={handleClick} />`} />
+          <CodeBlock language='js' code={`<AnchorButton label="Open in Github" onClick={handleClick} />
+<AnchorButton label="Download" color="" onClick={handleClick} />`} />
         </Section>
 
         <Section id="buttons" title="Buttons" description="Simple buttons">
@@ -114,12 +107,11 @@ export default function Docs() {
                   I'm a Neo-Brutalist component living in a React world.
                   This box handles its own overflow and styling. Images work too. 
                 </p>
-                </p>
                 <img src="https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg" alt="Example image" />
               </Box>
             </div>
           </PreviewBox>
-          <CodeBlock language='js' code={`<Box headerText="about me" headerColor={AppColors.coralRed}>
+          <CodeBlock language='js' code={`<Box headerText="about me" headerColor="#FFFF7A5C">
   <p>Content goes here...</p>
 </Box>`} />
         </Section>
@@ -137,13 +129,12 @@ export default function Docs() {
 <Badge text="Design" size="sm" />`} />
         </Section>
 
-        <Section id="projectcards" title="Project Cards" description="Complex card component with image, description and action.">
+        <Section id="cards" title="Project Cards" description="Complex card component with image, description and action.">
           <PreviewBox>
             <ProjectCard 
               projectName="NeoBrutal"
               description="A design framework that embraces the aesthetics of neo-brutalism in web development."
               imagePath="https://picsum.photos/600/300"
-              imagealt='image'
               projectLink="#"
               languages={['React', 'Tailwind', 'TypeScript']}
               buttonText="View Source"
@@ -159,7 +150,7 @@ export default function Docs() {
 />`} />
         </Section>
 
-        <Section id="simplecards" title="Simple Cards" description="Used for work experience or history.">
+        <Section id="Simple Cards" title="Simple Cards" description="Used for work experience or history.">
           <PreviewBox>
             <div className="w-full max-w-md">
               <SimpleCard 
@@ -194,10 +185,11 @@ color={AppColors.paleYellow}
 />`} />
         </Section>
 
-        <Section id='CodeBlocks' title='Code Blocks' description='Used for showing code snippets'>
-            <CodeBlock language='html' code='<p>This is a Code Block. This is how your code would look. You can specify the language you are typing. No auto type right now. You can copy the code to clipboard.'/>
+        <Section id='CodeBlocks' title='Code Blocks' description='Used for showing code and '>
+
         </Section>
 
+      </main>
     </div>
   );
 }

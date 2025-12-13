@@ -9,7 +9,7 @@ export default function Home() {
 
   const handleDocsClick = () => {
     push('/docs');
-    setTimeout(() => window.scrollTo(0, 0), 0);  
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -57,7 +57,7 @@ export default function Home() {
           Because standard Material Design and Bootstrap are boring. You want your app to pop.
           You want borders that are thick enough to stand on. You want shadows that don't fade away.
         </p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-gray-50 border-2 border-black p-4 rounded-lg">
             <h3 className="font-bold text-xl mb-2">React 18+</h3>

@@ -1,56 +1,45 @@
-'use client';
+'use client'
+
 import React from 'react';
-import { Link } from './Link';
-import { useRouter } from './lib/router-context';
+import { AppColors } from '../constants';
+import { isDarkColor } from '../app/utils/colors';
 
-export const Header = () => {
-  const { path } = useRouter();
+interface ButtonProps {
+  children: React.ReactNode;
+  width?: string;
+  height?: string;
+  color?: string;
+  className?: string;
+  onClick?: () => void;
+  shadows?: boolean;
+}
 
+export const Button: React.FC<ButtonProps> = ({ 
+  children, 
+  width = 'w-auto', 
+  height = 'h-auto', 
+  color = AppColors.white,
+  className = '',
+  onClick
+}) => {
+  const isDark = isDarkColor(color);
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b-[3px] border-black shadow-neo-sm h-16 md:h-20">
-      <nav className="max-w-7xl mx-auto px-4 h-full flex justify-between items-center">
-        
-        {/* Logo */}
-        <Link 
-          href="/"
-          className="cursor-pointer font-outfit text-xl md:text-2xl font-black tracking-tight hover:scale-105 transition-transform"
-        >
-          NEOBRUTAL<span className="text-[#40d39c]">.UI</span>
-        </Link>
-
-        {/* Links */}
-        <ul className="flex items-center gap-4 md:gap-8">
-          <li>
-            <Link 
-              href="/"
-              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/' ? 'text-black underline' : 'text-gray-600'}`}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link 
-              href="/docs"
-              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/docs' ? 'text-black underline' : 'text-gray-600'}`}
-            >
-              Docs
-            </Link>
-          </li>
-          <li>
-            <a 
-              href="https://github.com/himanshubalani" 
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="hidden md:flex items-center justify-center w-10 h-10 bg-black text-white rounded-lg border-2 border-black hover:bg-white hover:text-black transition-colors"
-            >
-              <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <div 
+      onClick={onClick}
+      className={`
+        ${width} ${height} ${className}
+        rounded-[18px] border-[3px] border-black
+        shadow-none ${isDark ? 'text-white' : 'text-black'} transition-all duration-200
+        hover:-translate-y-1 hover:shadow-neo-lg
+        active:translate-y-0 active:translate-x-0 active:shadow-neo-sm
+        flex items-center justify-center
+        cursor-pointer
+      `}
+      style={{ backgroundColor: color }}
+    >
+      <span className="font-outfit font-bold text-lg md:text-xl p-4">
+        {children}
+      </span>
+    </div>
   );
 };
