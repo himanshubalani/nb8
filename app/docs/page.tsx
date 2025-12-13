@@ -191,8 +191,7 @@ color={AppColors.paleYellow}
         <Section id='CodeBlocks' title='Code Blocks' description='Used for showing code snippets'>
             <CodeBlock language='html' code='<p>This is a Code Block. This is how your code would look. You can specify the language you are typing. No auto type right now. You can copy the code to clipboard.'/>
         </Section>
-
-      </main>
+        
     </div>
   );
 }
