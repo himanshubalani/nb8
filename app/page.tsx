@@ -1,8 +1,8 @@
 'use client';
 import React from 'react';
 import { AppColors } from '../constants';
-import { NeoContainer } from '../components/NeoComponents';
-import { useRouter } from '../lib/router-context';
+import { Button } from '../components/Button';
+import { useRouter } from '../components/lib/router-context';
 
 export default function Home() {
   const { push } = useRouter();
@@ -26,7 +26,7 @@ export default function Home() {
         <div className="absolute w-32 h-32 md:w-40 md:h-40 rounded-full bg-[#40d39c] -top-10 -left-6 md:-left-12 -z-10 opacity-40 md:opacity-100 border-2 border-black" />
         <div className="absolute w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#0077b6] -bottom-8 -right-8 -z-10 opacity-40 md:opacity-100 border-2 border-black" />
 
-        <h1 className="font-lexend text-4xl md:text-6xl lg:text-7xl font-black text-black mb-6 relative z-10">
+        <h1 className="font-quicksand text-4xl md:text-6xl lg:text-7xl font-black text-black mb-6 relative z-10">
           NB8
           <span className="block h-3 w-24 bg-[#40d39c] mx-auto mt-[-10px] rounded-full relative -z-10"></span>
         </h1>
@@ -40,19 +40,19 @@ export default function Home() {
         </div>
 
         <div className="flex gap-4 z-10">
-          <NeoContainer 
+          <Button 
             color={AppColors.royalBlue} 
-            className="w-48 text-white hover:text-black font-bold"
+            className="w-48"
             onClick={handleDocsClick}
           >
             Read Docs
-          </NeoContainer>
+          </Button>
         </div>
       </div>
 
       {/* Getting Started Teaser */}
       <div className="max-w-4xl w-full bg-white border-[4px] border-black shadow-neo-lg rounded-2xl p-8 mb-12">
-        <h2 className="font-lexend text-3xl font-bold mb-4">Why use this?</h2>
+        <h2 className="font-quicksand text-3xl font-bold mb-4">Why use this?</h2>
         <p className="font-public text-lg text-gray-600 mb-6">
           Because standard Material Design and Bootstrap are boring. You want your app to pop.
           You want borders that are thick enough to stand on. You want shadows that don't fade away.

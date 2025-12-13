@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { useRouter, Route } from '../lib/router-context';
+import { useRouter, Route } from './lib/router-context';
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   href: Route;

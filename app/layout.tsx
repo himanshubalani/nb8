@@ -7,7 +7,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#F0F4F7] text-[#121212] font-public">
+    <div className="min-h-screen bg-[#bfd5f1] text-[#121212] font-public">
       {/* Navigation Bar extracted to Header component to isolate useRouter context usage */}
       <Header />
 

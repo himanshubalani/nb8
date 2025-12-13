@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export interface WorkExperienceCardProps {
+export interface SimpleCardProps {
   company: string;
   role: string;
   duration: string;
@@ -12,7 +12,7 @@ export interface WorkExperienceCardProps {
   children?: React.ReactNode;
 }
 
-export const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({ company, role, duration, tech, color, link }) => {
+export const SimpleCard: React.FC<SimpleCardProps> = ({ company, role, duration, tech, color, link }) => {
   const CardContent = () => (
     <div 
       className="rounded-[18px] border-[3px] border-black p-4 transition-transform hover:-translate-y-1 hover:shadow-neo"

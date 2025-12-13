@@ -25,7 +25,7 @@ export const Badge: React.FC<BadgeProps> = ({ text, size = 'md', darkMode = fals
     <span 
       className={`
         ${sizeClasses[size]}
-        font-outfit font-bold rounded-full border-2
+        font-outfit font-bold rounded-xl border-2
         inline-block whitespace-nowrap
       `}
       style={{ 

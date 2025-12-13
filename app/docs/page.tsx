@@ -1,30 +1,27 @@
 'use client';
 import React, { useState } from 'react';
 import { 
-  Button,
+  AnchorButton,
   Box,
-  Container,
+  Button,
   Badge,
   ProjectCard,
-  WorkExperienceCard
+  SimpleCard
 } from '../../components';
 import { AppColors } from '../../constants';
+import CodeBlock from '../../components/CodeBlock';
 
-const CodeBlock = ({ code, children }: { code: string; children?: React.ReactNode }) => (
-  <div className="bg-[#2b2b2b] text-white p-4 rounded-lg border-2 border-black overflow-x-auto relative mt-4 shadow-neo-sm">
-    <pre className="font-mono text-sm">{code}</pre>
-  </div>
-);
+
 
 const Section = ({ id, title, description, children }: any) => (
-  <section id={id} className="bg-white border-2 border-black shadow-neo rounded-2xl p-6 mb-12 scroll-mt-24">
-    <h2 className="font-lexend text-3xl font-bold mb-4 border-b-4 border-[#40d39c] inline-block">{title}</h2>
+  <section id={id} className="bg-white border-2 border-black shadow-neo rounded-2xl p-6 mb-6 scroll-mt-24">
+    <h2 className="font-quicksand text-3xl font-bold mb-4  inline-block">{title}</h2>
     <p className="font-public text-gray-600 mb-8 text-lg">{description}</p>
     {children}
   </section>
 );
 
-const PreviewBox = ({ children }: { children: React.ReactNode }) => (
+const PreviewBox = ({ children, color = AppColors.gray50}: { children: React.ReactNode }) => (
   <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-8 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
     {children}
   </div>
@@ -50,12 +47,12 @@ export default function Docs() {
           </h4>
           <ul className="space-y-2">
             {[
+              { id: 'anchorbuttons', label: 'Anchor Buttons' },
               { id: 'buttons', label: 'Buttons' },
-              { id: 'containers', label: 'Containers' },
               { id: 'boxes', label: 'Box' },
               { id: 'badges', label: 'Badges' },
-              { id: 'cards', label: 'Project Cards' },
-              { id: 'timeline', label: 'Timeline' },
+              { id: 'projectcards', label: 'Project Cards' },
+              { id: 'simplecards', label: 'Simple Cards' },
             ].map((item) => (
               <li key={item.id}>
                 <button
@@ -78,54 +75,57 @@ export default function Docs() {
       {/* Main Content */}
       <main className="flex-1 min-w-0">
         
-        <Section id="buttons" title="Buttons" description="Interactive elements with click feedback.">
+        <Section id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links">
           <PreviewBox>
-            <Button label="Default" onClick={() => {}} />
-            <Button label="Download" color={AppColors.skyBlue} onClick={() => {}} />
-            <Button label="Delete" color={AppColors.darkPurple} onClick={() => {}} />
+            <AnchorButton label="Open in Github" color={AppColors.github} onClick={() => {}} />
+            <AnchorButton label="Docs" color={AppColors.darkPurple} onClick={() => {}} />
+            <AnchorButton label="Email me at hello@himanshubalani.com" color={AppColors.skyBlue} onClick={() => {}} />
           </PreviewBox>
-          <CodeBlock code={`<NeoButton label="Default" onClick={handleClick} />
-<NeoButton label="Download" color="#93D6F1" onClick={handleClick} />`} />
+          <CodeBlock language='js' code={`<AnchorButton label="Open in Github" onClick={handleClick} />
+<AnchorButton label="Download" color="" onClick={handleClick} />`} />
         </Section>
 
-        <Section id="containers" title="Containers" description="Simple containers acting as buttons or display blocks.">
+        <Section id="buttons" title="Buttons" description="Simple buttons">
           <PreviewBox>
-            <Container width="w-40" height="h-16" color={AppColors.lightPink}>
+            <Button width="w-40" height="h-16" color={AppColors.lightPink}>
               Click Me
-            </Container>
-            <Container width="w-40" height="h-16" color={AppColors.lightPeach}>
+            </Button>
+            <Button width="w-40" height="h-16" color={AppColors.lightPeach}>
               Projects
-            </Container>
+            </Button>
           </PreviewBox>
-          <CodeBlock code={`<NeoContainer width="w-40" height="h-16" color={AppColors.lightPink}>
+          <CodeBlock language='js' code={`<Button width="w-40" height="h-16" color={AppColors.lightPink}>
   Click Me
-</NeoContainer>`} />
+</Button>`} />
         </Section>
 
-        <Section id="boxes" title="Neo Box" description="A window-like container with a header bar and circles.">
+        <Section id="boxes" title="Box" description="A browser container with a header bar.">
           <PreviewBox>
             <div className="w-full max-w-md">
-              <Box headerText="about me" headerColor={AppColors.tomatoRed}>
+              <Box headerText="about me" headerColor={AppColors.coralRed}>
                 <p className="font-outfit text-sm">
                   I'm a Neo-Brutalist component living in a React world.
-                  This box handles its own overflow and styling.
+                  This box handles its own overflow and styling. Images work too. 
                 </p>
+                <a href="" ></a><img src="https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg" />
               </Box>
             </div>
           </PreviewBox>
-          <CodeBlock code={`<NeoBox headerText="about me" headerColor="#FFFF7A5C">
+          <CodeBlock language='js' code={`<Box headerText="about me" headerColor="#FFFF7A5C">
   <p>Content goes here...</p>
-</NeoBox>`} />
+</Box>`} />
         </Section>
 
         <Section id="badges" title="Badges" description="Small tags for skills, languages, or status.">
           <PreviewBox>
-            <Badge text="React" />
+            <Badge text="React" size='lg' />
             <Badge text="TypeScript" />
             <Badge text="Tailwind" />
             <Badge text="Design" size="sm" />
           </PreviewBox>
-          <CodeBlock code={`<Badge text="React" />
+          <CodeBlock language='js' code={`<Badge  text="React" size='lg' />
+<Badge text="TypeScript" />
+<Badge text="Tailwind" />
 <Badge text="Design" size="sm" />`} />
         </Section>
 
@@ -140,7 +140,7 @@ export default function Docs() {
               buttonText="View Source"
             />
           </PreviewBox>
-          <CodeBlock code={`<ProjectCard 
+          <CodeBlock language='js' code={`<ProjectCard 
   projectName="NeoBrutal"
   description="..."
   imagePath="..."
@@ -150,17 +150,17 @@ export default function Docs() {
 />`} />
         </Section>
 
-        <Section id="timeline" title="Timeline Cards" description="Used for work experience or history.">
+        <Section id="Simple Cards" title="Simple Cards" description="Used for work experience or history.">
           <PreviewBox>
             <div className="w-full max-w-md">
-              <WorkExperienceCard 
+              <SimpleCard 
                 company="Tech Corp"
                 role="Senior Engineer"
                 duration="2020 - Present"
                 tech="React, Node, AWS"
                 color={AppColors.lightTeal}
               />
-              <WorkExperienceCard 
+              <SimpleCard 
                 company="Startup Inc"
                 role="Frontend Dev"
                 duration="2018 - 2020"
@@ -169,6 +169,24 @@ export default function Docs() {
               />
             </div>
           </PreviewBox>
+          <CodeBlock language='js' code={`<SimpleCard 
+company="Tech Corp"
+role="Senior Engineer"
+duration="2020 - Present"
+tech="React, Node, AWS"
+color={AppColors.lightTeal}
+/>
+<SimpleCard 
+company="Startup Inc"
+role="Frontend Dev"
+duration="2018 - 2020"
+tech="Vue, Firebase"
+color={AppColors.paleYellow}
+/>`} />
+        </Section>
+
+        <Section id='CodeBlocks' title='Code Blocks' description='Used for showing code and '>
+
         </Section>
 
       </main>
