@@ -39,4 +39,11 @@ next-env.d.ts
 #combine
 combine*
 
+# Package dependencies
+packages/*/node_modules/
+packages/nb8/node_modules/
+
+# Package build outputs (TS compilation)
+packages/nb8/dist/
+packages/*/dist/
 

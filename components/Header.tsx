@@ -40,7 +40,7 @@ export const Header = () => {
           </li>
           <li>
             <a 
-              href="https://github.com/himanshubalani" 
+              href="https://github.com/himanshubalani/nb8" 
               target="_blank"
               rel="noreferrer"
               className="hidden md:flex items-center justify-center w-10 h-10 bg-black text-white rounded-lg border-2 border-black hover:bg-white hover:text-black transition-colors"
