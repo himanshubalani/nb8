@@ -6,7 +6,16 @@ import ora from "ora";
 import { fetchComponent } from "../utils/registry.js";
 
 // Helper to write component to disk
-async function installComponent(componentKey: string, config: any, spinner: any) {
+async function installComponent(
+  componentKey: string,
+  config: any,
+  spinner: any,
+  installed: Set<string> = new Set()
+) {
+  if (installed.has(componentKey)) {
+    return null; // Already installed, skip
+  }
+  installed.add(componentKey);
   const component = await fetchComponent(componentKey);
   
   if (!component) {
@@ -18,7 +27,7 @@ async function installComponent(componentKey: string, config: any, spinner: any)
   if (component.internalDependencies.length > 0) {
     spinner.text = `Installing dependencies for ${component.name}: ${component.internalDependencies.join(", ")}...`;
     for (const dep of component.internalDependencies) {
-      await installComponent(dep, config, spinner);
+      await installComponent(dep, config, spinner, installed);
     }
     spinner.text = `Installing ${component.name}...`;
   }
@@ -55,10 +64,15 @@ async function installComponent(componentKey: string, config: any, spinner: any)
 }
 
 export async function add(componentKey: string) {
-  if (!fs.existsSync("nb8.json")) {
-    console.error(chalk.red("Error: Config not found. Run 'npx nb8 init' first."));
-    return;
-  }
+	if (!componentKey) {
+    	console.error(chalk.red("Error: Please specify a component to add. Usage: npx nb8 add <component>"));
+    	return;
+  	}
+
+  	if (!fs.existsSync("nb8.json")) {
+    	console.error(chalk.red("Error: Config not found. Run 'npx nb8 init' first."));
+    	return;
+  	}
   
   const config = await fs.readJSON("nb8.json");
   const spinner = ora(`Installing ${componentKey}...`).start();

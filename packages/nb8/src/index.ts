@@ -18,7 +18,7 @@ program
 program
   .command("add")
   .description("Add a component to your project")
-  .argument("[component]", "The component to add")
+  .argument("<component>", "The component to add")
   .action(add);
 
 program.parse();

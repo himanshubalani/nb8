@@ -37,7 +37,12 @@ export async function init() {
 }
   };
 
-  await fs.writeFile("nb8.json", JSON.stringify(config, null, 2));
+ try {
+    await fs.writeFile("nb8.json", JSON.stringify(config, null, 2));
+  } catch (error) {
+    console.error(chalk.red("Failed to create nb8.json:"), error);
+    process.exit(1);
+  }
 
   // 3. Download Core Files
   const spinner = ora("Downloading core files...").start();
@@ -51,23 +56,40 @@ export async function init() {
     const constantsRes = await fetch(`${GITHUB_BASE_URL}/constants.ts`);
     if (!constantsRes.ok) throw new Error("Failed to fetch constants.ts");
     const constantsText = await constantsRes.text();
+	if (!constantsText || constantsText.trim().length === 0) {
+      throw new Error("Empty response for constants.ts");
+    }
     await fs.writeFile(path.join(nb8Dir, "constants.ts"), constantsText);
 
     // --- B. Download utils/colors.ts (renaming to utils/index.ts for cleaner import) ---
     const colorsRes = await fetch(`${GITHUB_BASE_URL}/app/utils/colors.ts`);
     if (!colorsRes.ok) throw new Error("Failed to fetch colors.ts");
     const colorsText = await colorsRes.text();
+	if (!colorsText || colorsText.trim().length === 0) {
+      throw new Error("Empty response for colors.ts");
+    }
     await fs.writeFile(path.join(nb8Dir, "utils", "index.ts"), colorsText);
 
     spinner.succeed(chalk.green("NB8 Initialized successfully!"));
     console.log(chalk.gray(`\nCore files created at: ${nb8Dir}`));
     console.log(chalk.gray(`Config file created: nb8.json`));
 
+	console.log(chalk.blue(`\nIMPORTANT: Ensure your tsconfig.json has the "@/*" path alias configured:`));
+	console.log(chalk.gray(`{ "compilerOptions": { "paths": { "@/*": ["./src/*"] } } }`));
+
   } catch (error) {
     spinner.fail("Failed to initialize.");
-    console.error(error);
+    console.error(chalk.red(error instanceof Error ? error.message : String(error)));
+	
+    
+    // Cleanup partial state
+    console.log(chalk.yellow("\nCleaning up partial initialization..."));
+    try {
+      await fs.remove(nb8Dir);
+      await fs.remove("nb8.json");
+    } catch (cleanupError) {
+      console.error(chalk.red("Failed to cleanup:"), cleanupError);
+    }
+	process.exit(1);
   }
-
-console.log(chalk.blue(`\nIMPORTANT: Ensure your tsconfig.json has the "@/*" path alias configured:`));
-console.log(chalk.gray(`{ "compilerOptions": { "paths": { "@/*": ["./src/*"] } } }`));
 }
