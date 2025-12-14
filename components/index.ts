@@ -4,3 +4,8 @@ export * from './Button';
 export * from './Badge';
 export * from './ProjectCard';
 export * from './SimpleCard';
+export * from './CodeBlock';
+export * from './Bottombar';
+export * from './Polaroid';
+export * from './Sidebar';
+export * from './ProgressBar';

@@ -23,7 +23,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   logoPath
 }) => {
   return (
-    <div className="w-full max-w-sm bg-white rounded-[18px] border-[3px] border-black shadow-neo flex flex-col overflow-hidden transition-transform hover:-translate-y-1">
+    <div className="w-full max-w-sm bg-white rounded-[18px] border-[3px] border-black shadow-neo-sm flex flex-col overflow-hidden transition-transform hover:-translate-y-1 hover:shadow-neo">
       {/* Image Section */}
       <div className="h-40 w-full overflow-hidden border-b-2 border-black bg-gray-100 relative">
         <img 

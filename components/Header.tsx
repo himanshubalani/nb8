@@ -1,10 +1,12 @@
 'use client';
-import React from 'react';
+
+import { AppColors } from '../constants';
 import { Link } from './Link';
 import { useRouter } from './lib/router-context';
 
 export const Header = () => {
   const { path } = useRouter();
+  const headerpath = path === '/' ? '' : '/docs';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b-[3px] border-black shadow-neo-sm h-16 md:h-20">
@@ -13,9 +15,9 @@ export const Header = () => {
         {/* Logo */}
         <Link 
           href="/"
-          className="cursor-pointer font-outfit text-xl md:text-2xl font-black tracking-tight hover:scale-105 transition-transform"
+          className="cursor-pointer font-outfit text-xl md:text-3xl font-black tracking-tight hover:scale-105 transition-transform"
         >
-          NEOBRUTAL<span className="text-[#40d39c]">.UI</span>
+          nb<span style={{color:AppColors.deepSaffron}}> 8 </span><span className="font-thin">{headerpath}</span>
         </Link>
 
         {/* Links */}
@@ -23,7 +25,7 @@ export const Header = () => {
           <li>
             <Link 
               href="/"
-              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/' ? 'text-black underline' : 'text-gray-600'}`}
+              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/' ? 'text-black' : 'text-gray-500'}`}
             >
               Home
             </Link>
@@ -31,7 +33,7 @@ export const Header = () => {
           <li>
             <Link 
               href="/docs"
-              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/docs' ? 'text-black underline' : 'text-gray-600'}`}
+              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/docs' ? 'text-black' : 'text-gray-500'}`}
             >
               Docs
             </Link>

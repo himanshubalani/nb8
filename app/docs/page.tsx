@@ -6,29 +6,55 @@ import {
   Button,
   Badge,
   ProjectCard,
-  SimpleCard
+  SimpleCard,
+  CodeBlock,
+  Polaroid,
+  ProgressBar,
 } from '../../components';
 import { AppColors } from '../../constants';
-import CodeBlock from '../../components/CodeBlock';
+import Sidebar from '../../components/Sidebar';
 
 
 
 interface SectionProps {
   id: string;
   title: string;
+  label: string; // 👈 used for CLI install
   description: string;
   children: React.ReactNode;
 }
-const Section = ({ id, title, description, children }: SectionProps) => (
-  <section id={id} className="bg-white border-2 border-black shadow-neo rounded-2xl p-6 mb-6 scroll-mt-24">
-    <h2 className="font-quicksand text-3xl font-bold mb-4  inline-block">{title}</h2>
-    <p className="font-public text-gray-600 mb-8 text-lg">{description}</p>
+
+const Section = ({ id, title, label, description, children }: SectionProps) => (
+  <section
+    id={id}
+    className="border-2 border-black shadow-neo rounded-2xl p-6 mb-6 scroll-mt-24"
+    style={{ backgroundColor: AppColors.lightTeal }}
+  >
+    {/* Title row */}
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+      <h2 className="font-quicksand text-3xl font-bold inline-block">
+        {title}
+      </h2>
+
+      {/* Install instruction */}
+      <div className="shrink-0">
+        <CodeBlock
+          language="bash"
+          code={`npx nb8 add ${label}`}
+        />
+      </div>
+    </div>
+
+    <p className="font-public text-gray-600 mb-8 text-lg">
+      {description}
+    </p>
+
     {children}
   </section>
 );
 
-const PreviewBox = ({ children, color = AppColors.gray50}: { children: React.ReactNode }) => (
-  <div className="bg-gray-50 border-2 border-gray-200 rounded-xl p-8 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
+const PreviewBox = ({ children }: { children: React.ReactNode }) => (
+  <div className="bg-gray-50 border-2 border-black rounded-xl p-8 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
     {children}
   </div>
 );
@@ -55,25 +81,30 @@ export default function Docs() {
       {/* Sidebar */}
       <aside className="lg:w-64 flex-shrink-0">
         <div className="sticky top-24 bg-white border-[3px] border-black rounded-xl p-4 overflow-y-auto max-h-[80vh]">
-          <h4 className="font-geist font-bold text-lg mb-4 uppercase tracking-wider border-b-2 border-black pb-2">
+          <h4 className="font-outfit font-bold text-lg mb-4 uppercase tracking-wider border-b-2 border-black pb-2">
             Components
           </h4>
           <ul className="space-y-2">
             {[
-              { id: 'anchorbuttons', label: 'Anchor Buttons' },
-              { id: 'buttons', label: 'Buttons' },
+              { id: 'anchorbuttons', label: 'AnchorButton' },
+              { id: 'buttons', label: 'Button' },
               { id: 'boxes', label: 'Box' },
-              { id: 'badges', label: 'Badges' },
-              { id: 'projectcards', label: 'Project Cards' },
-              { id: 'simplecards', label: 'Simple Cards' },
+              { id: 'badges', label: 'Badge' },
+              { id: 'projectcards', label: 'ProjectCard' },
+              { id: 'simplecards', label: 'SimpleCard' },
+              {id: 'codeblocks', label: 'CodeBlock'},
+              {id: 'polaroid', label: 'Polaroid'},
+              {id: 'sidebar', label: 'SideBar'},
+              {id: 'progressbar', label:'ProgressBar'},
+
             ].map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => scrollTo(item.id)}
                   className={`w-full text-left px-3 py-2 rounded-lg border-2 font-bold text-sm transition-all
                     ${activeSection === item.id 
-                      ? 'bg-black text-[#ffe600] border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] translate-x-[2px] translate-y-[2px]' 
-                      : 'bg-gray-50 text-black border-transparent hover:bg-[#ffe600] hover:border-black hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]'
+                      ? 'bg-black text-white border-black  translate-x-[2px] translate-y-[2px]' 
+                      : 'bg-gray-50 text-black border-transparent hover:bg-[#90a8ed] hover:border-black'
                     }
                   `}
                 >
@@ -88,31 +119,38 @@ export default function Docs() {
       {/* Main Content */}
       <main className="flex-1 min-w-0">
         
-        <Section id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links">
+        <Section label='AnchorButton' id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links. Supported URIs: 'http:', 'https:', 'mailto:','tel:'">
           <PreviewBox>
-            <AnchorButton label="Open in Github" color={AppColors.github} onClick={() => {}} />
+            <AnchorButton label="Open in Github" color={AppColors.github} url='https://github.com/himanshubalani/nb8' />
             <AnchorButton label="Docs" color={AppColors.darkPurple} onClick={() => {}} />
-            <AnchorButton label="Email me at hello@himanshubalani.com" color={AppColors.skyBlue} onClick={() => {}} />
+              <AnchorButton label="Do Something" onClick={() => console.log('clicked')} />
+            <AnchorButton label="Email me at hello@himanshubalani.com" fullWidth={true} color={AppColors.skyBlue} url='mailto:hello@himanshubalani.com' onClick={() => {}} />
           </PreviewBox>
-          <CodeBlock language='js' code={`<AnchorButton label="Open in Github" onClick={handleClick} />
-<AnchorButton label="Download" color="" onClick={handleClick} />`} />
+          <CodeBlock language='js' code={`<AnchorButton label="Open in Github" color={AppColors.github} url='https://github.com/himanshubalani/nb8' />
+<AnchorButton label="Docs" color={AppColors.darkPurple} onClick={() => {}} />
+<AnchorButton label="Do Something" onClick={() => console.log('clicked')} />
+<AnchorButton label="Email me at hello@himanshubalani.com" fullWidth={true} color={AppColors.skyBlue} url='mailto:hello@himanshubalani.com' onClick={() => {}} />
+`} />
         </Section>
 
-        <Section id="buttons" title="Buttons" description="Simple buttons">
+        <Section label='Button' id="buttons" title="Buttons" description="Simple buttons">
           <PreviewBox>
             <Button width="w-40" height="h-16" color={AppColors.lightPink}>
               Click Me
             </Button>
-            <Button width="w-40" height="h-16" color={AppColors.lightPeach}>
+            <Button width="w-40" height="h-12" color={AppColors.lightPeach}>
               Projects
             </Button>
           </PreviewBox>
           <CodeBlock language='js' code={`<Button width="w-40" height="h-16" color={AppColors.lightPink}>
   Click Me
+</Button>
+<Button width="w-40" height="h-12" color={AppColors.lightPeach}>
+  Projects
 </Button>`} />
         </Section>
 
-        <Section id="boxes" title="Box" description="A browser container with a header bar.">
+        <Section id="boxes" label="Box" title="Box" description="A browser container with a header bar.">
           <PreviewBox>
             <div className="w-full max-w-md">
               <Box headerText="about me" headerColor={AppColors.coralRed}>
@@ -120,7 +158,7 @@ export default function Docs() {
                   I'm a Neo-Brutalist component living in a React world.
                   This box handles its own overflow and styling. Images work too. 
                 </p>
-                <img src="https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg" alt="Example image" />
+                <img src="https://picsum.photos/500" alt="Example image" />
               </Box>
             </div>
           </PreviewBox>
@@ -129,7 +167,7 @@ export default function Docs() {
 </Box>`} />
         </Section>
 
-        <Section id="badges" title="Badges" description="Small tags for skills, languages, or status.">
+        <Section id="badges" label="Badge" title="Badges" description="Small tags for skills, languages, or status.">
           <PreviewBox>
             <Badge text="React" size='lg' />
             <Badge text="TypeScript" />
@@ -142,7 +180,7 @@ export default function Docs() {
 <Badge text="Design" size="sm" />`} />
         </Section>
 
-        <Section id="cards" title="Project Cards" description="Complex card component with image, description and action.">
+        <Section id="projectcards" label="ProjectCard"  title="Project Cards" description="Complex card component with image, description and action.">
           <PreviewBox>
             <ProjectCard 
               projectName="NeoBrutal"
@@ -163,7 +201,7 @@ export default function Docs() {
 />`} />
         </Section>
 
-        <Section id="Simple Cards" title="Simple Cards" description="Used for work experience or history.">
+        <Section id="simplecards" label="SimpleCard" title="Simple Cards" description="Used for work experience or history.">
           <PreviewBox>
             <div className="w-full max-w-md">
               <SimpleCard 
@@ -171,7 +209,7 @@ export default function Docs() {
                 role="Senior Engineer"
                 duration="2020 - Present"
                 tech="React, Node, AWS"
-                color={AppColors.lightTeal}
+                color={AppColors.lightPeach}
               />
               <SimpleCard 
                 company="Startup Inc"
@@ -198,10 +236,72 @@ color={AppColors.paleYellow}
 />`} />
         </Section>
 
-        <Section id='CodeBlocks' title='Code Blocks' description='Used for showing code and '>
+        <Section id='codeblocks' label="CodeBlock" title='Code Blocks' description='Used for displaying code snippets. '>
+              <PreviewBox>
+                <CodeBlock language='html' code='<p>
+This is a CodeBlock. You can specify the programming language and a button to copy the code as well
+</p>'></CodeBlock>
+<CodeBlock language='html' copy={false} code='<p>
+This is also a CodeBlock. This has Copy disabled. You can specify the programming language.
+</p>'></CodeBlock>
+<CodeBlock language='html' copy={false} code="<CodeBlock language='html' copy={false} code='<p>
+This is a CodeBlock for CodeBlock. Refer this to know how to add this component. This has Copy disabled.'></CodeBlock>'>"></CodeBlock>
 
+                </PreviewBox>
+                </Section>
+
+        <Section id='polaroid' label="Polaroid" title='Image Polaroid' description='Show beautiful images in a polaoid'>
+              <PreviewBox>
+                <Polaroid src='https://picsum.photos/600/400' alt='Polaroid Example'/>
+                </PreviewBox>
+                <CodeBlock language='js' code={`<Polaroid src='https://picsum.photos/600/400' alt='Polaroid Example' />`} />
         </Section>
 
+                <Section id='sidebar' label="Sidebar"  title='Side Bar' description='A side menu bar made for simplicity'>
+              <PreviewBox>
+                <Sidebar
+  title="Components"
+  items={[
+    { id: 'anchorbuttons', label: 'Anchor Buttons' },
+    { id: 'buttons', label: 'Buttons' },
+    { id: 'boxes', label: 'Box' },
+    { id: 'badges', label: 'Badges' },
+    {id: 'sidebar', label: 'Side Bar'}
+    ]}
+  activeSection={activeSection}
+  onItemClick={scrollTo}
+/>
+                </PreviewBox>
+                <CodeBlock language='js' code={`<Sidebar
+  title="Components"
+  items={[
+    { id: 'anchorbuttons', label: 'Anchor Buttons' },
+    { id: 'buttons', label: 'Buttons' },
+    { id: 'boxes', label: 'Box' },
+    { id: 'badges', label: 'Badges' },
+    {id: 'sidebar', label: 'Side Bar'}
+    ]}
+  activeSection={activeSection}
+  onItemClick={scrollTo}
+/>`} />
+        </Section>
+
+        <Section id='progressbar'  label="ProgressBar" title='ProgressBar' description='Get feedback in form of Progress'>
+          <PreviewBox>
+          <ProgressBar 
+  value={75} 
+  progressColor="#f48372ff" 
+  height={24}
+  ></ProgressBar>
+          </PreviewBox>
+          <CodeBlock language='js' code={`<ProgressBar 
+  value={75} 
+  progressColor="#f472b6" 
+  height={32}
+/>`} />
+        
+        </Section>
+          
       </main>
     </div>
   );

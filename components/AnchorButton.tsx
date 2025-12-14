@@ -10,6 +10,7 @@ interface AnchorButtonProps {
   color?: string;
   onClick?: () => void;
   fullWidth?: boolean;
+  url?: string;
 }
 
 export const AnchorButton: React.FC<AnchorButtonProps> = ({ 
@@ -17,13 +18,34 @@ export const AnchorButton: React.FC<AnchorButtonProps> = ({
   icon, 
   color = AppColors.deepSaffron, 
   onClick,
-  fullWidth = false
+  fullWidth = false,
+  url
 }) => {
   const isDark = isDarkColor(color);
 
+  const handleClick = () => {
+    if (url) {
+      // Validate URL scheme to prevent javascript: and data: URLs  
+      try {  
+        const urlObj = new URL(url, window.location.origin);  
+        if (!['http:', 'https:', 'mailto:','tel:'].includes(urlObj.protocol)) {  
+          console.error('Invalid URL protocol:', urlObj.protocol);  
+          return;  
+        }  
+      } catch (err) {  
+        console.error('Invalid URL:', url, err);  
+        return;  
+      }  
+      window.open(url, '_self'); // use '_blank' if you want new tab
+      return;
+    }
+
+    onClick?.();
+  };
+
   return (
     <button
-      onClick={onClick}
+      onClick={handleClick}
       className={`
         ${fullWidth ? 'w-full' : 'w-auto'}
         flex items-center justify-between
