@@ -130,7 +130,7 @@ export default function Docs() {
                   I'm a Neo-Brutalist component living in a React world.
                   This box handles its own overflow and styling. Images work too. 
                 </p>
-                <img src="https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg" alt="Example image" />
+                <img src="https://picsum.photos/200/300" alt="Example image" />
               </Box>
             </div>
           </PreviewBox>
