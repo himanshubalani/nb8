@@ -133,7 +133,6 @@ export default function BottomBar() {
         ctx.fill();
       }
 
-      requestAnimationFrame(draw);
       animationId = requestAnimationFrame(draw);
     };
 
@@ -142,7 +141,8 @@ export default function BottomBar() {
     return () => {  
       window.removeEventListener("resize", resize);  
       cancelAnimationFrame(animationId);  
-    };  
+    };   
+  
   }, []);
 
   const year = new Date().getFullYear();
@@ -171,7 +171,7 @@ export default function BottomBar() {
           <div className={`flex flex-row gap-4 text-[10px] sm:text-[12px] uppercase tracking-wide font-quicksand `}>
             <a  
               href="mailto:hello@himanshubalani.com"  
-              target="_blank"  
+              rel="noopener noreferrer"  
               className="text-[#8c8c8c] hover:text-black transition-colors"  
             >  
               Email  

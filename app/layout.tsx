@@ -1,7 +1,8 @@
 import React from 'react';
 import { Header } from '../components/Header';
-import BottomBar from '../components/Bottombar';
+// import BottomBar from '../components/Bottombar';
 import { AppColors } from '../constants';
+import BottomBar from '../components/Bottombar';
 
 export default function RootLayout({
   children,

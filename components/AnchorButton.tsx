@@ -28,7 +28,7 @@ export const AnchorButton: React.FC<AnchorButtonProps> = ({
       // Validate URL scheme to prevent javascript: and data: URLs  
       try {  
         const urlObj = new URL(url, window.location.origin);  
-        if (!['http:', 'https:', 'mailto:','file:', 'ftp:','tel:', 'imap:'].includes(urlObj.protocol)) {  
+        if (!['http:', 'https:', 'mailto:','tel:'].includes(urlObj.protocol)) {  
           console.error('Invalid URL protocol:', urlObj.protocol);  
           return;  
         }  
