@@ -2,7 +2,6 @@
 
 'use client';
 
-
 import { AppColors } from '../constants';
 import { Button } from '../components/Button';
 import { Badge } from '../components/Badge';
@@ -27,7 +26,7 @@ const RotatingStar = () => (
 const FeatureItem = ({ 
   title, 
   desc, 
-  icon: Icon, 
+  icon: Icon,
   color, 
   rotate = 0 
 }: { 

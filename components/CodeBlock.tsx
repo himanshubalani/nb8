@@ -21,8 +21,8 @@ export const CodeBlock = ({
       await navigator.clipboard.writeText(code);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
-    } catch {
-      // silently fail
+    } catch(err) {
+      console.warn('Copy to clipboard failed:', err);
     }
   };
 

@@ -19,7 +19,7 @@ import Sidebar from '../../components/Sidebar';
 interface SectionProps {
   id: string;
   title: string;
-  label: string; // 👈 used for CLI install
+  label: string; //
   description: string;
   children: React.ReactNode;
 }
@@ -92,10 +92,10 @@ export default function Docs() {
               { id: 'badges', label: 'Badge' },
               { id: 'projectcards', label: 'ProjectCard' },
               { id: 'simplecards', label: 'SimpleCard' },
-              {id: 'codeblocks', label: 'CodeBlock'},
-              {id: 'polaroid', label: 'Polaroid'},
-              {id: 'sidebar', label: 'SideBar'},
-              {id: 'progressbar', label:'ProgressBar'},
+              { id: 'codeblocks', label: 'CodeBlock' },
+              { id: 'polaroid', label: 'Polaroid' },
+              { id: 'sidebar', label: 'SideBar' },
+              { id: 'progressbar', label:'ProgressBar' },
 
             ].map((item) => (
               <li key={item.id}>
@@ -236,11 +236,11 @@ color={AppColors.paleYellow}
 />`} />
         </Section>
 
-        <Section id='codeblocks' label="CodeBlock" title='Code Blocks' description='Used for displaying code snippets. '>
-              <PreviewBox>
-                <CodeBlock language='html' code='<p>
+        <Section id='codeblocks' label="CodeBlock" title='Code Blocks' description='Used for displaying code snippets.'>
++          <PreviewBox>
++            <CodeBlock language='html' code='<p>
 This is a CodeBlock. You can specify the programming language and a button to copy the code as well
-</p>'></CodeBlock>
+</p>' />
 <CodeBlock language='html' copy={false} code='<p>
 This is also a CodeBlock. This has Copy disabled. You can specify the programming language.
 </p>'></CodeBlock>
@@ -250,7 +250,7 @@ This is a CodeBlock for CodeBlock. Refer this to know how to add this component.
                 </PreviewBox>
                 </Section>
 
-        <Section id='polaroid' label="Polaroid" title='Image Polaroid' description='Show beautiful images in a polaoid'>
+        <Section id='polaroid' label="Polaroid" title='Image Polaroid' description='Show beautiful images in a polaroid'>
               <PreviewBox>
                 <Polaroid src='https://picsum.photos/600/400' alt='Polaroid Example'/>
                 </PreviewBox>
@@ -290,14 +290,14 @@ This is a CodeBlock for CodeBlock. Refer this to know how to add this component.
           <PreviewBox>
           <ProgressBar 
   value={75} 
-  progressColor="#f48372ff" 
+  progressColor="#f48372" 
   height={24}
   ></ProgressBar>
           </PreviewBox>
           <CodeBlock language='js' code={`<ProgressBar 
   value={75} 
-  progressColor="#f472b6" 
-  height={32}
+  progressColor="#f48372" 
+  height={24}
 />`} />
         
         </Section>
