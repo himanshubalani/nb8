@@ -4,11 +4,20 @@
 import { useEffect, useRef } from "react";
 import { Copyright } from "lucide-react";
 
-
+interface Circle {
+ x: number;
+ y: number;
+ radius: number;
+ speed: number;
+ drift: number;
+ offset: number;
+ vx: number;
+ vy: number;
+}
 
 export default function BottomBar() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const circlesRef = useRef<any[]>([]);
+  const circlesRef = useRef<Circle[]>([]);
 
   // Init set of circles
   const initCircles = (width: number, height: number) => {
@@ -158,17 +167,17 @@ export default function BottomBar() {
 
       <div className="relative z-[1] flex flex-row items-center gap-4">
         <div className="w-10 h-10 flex items-center justify-center">
-          <img src="nb8 logo.png" alt="icon" />
+          <img src="nb8_logo.png" alt="icon" />
         </div>
 
-        <div className={`flex flex-col gap-1 uppercase text-[10px] sm:text-[14px] tracking-wide font-quicksand `}>
+         <div className="flex flex-col gap-1 uppercase text-[10px] sm:text-[14px] tracking-wide font-quicksand">
           <p className="leading-none">HIMANSHU BALANI</p>
           <p className="leading-none mt-0.5 opacity-80 flex items-center gap-2">
             <Copyright size={10} />
             {year} • All Rights Reserved
           </p>
 
-          <div className={`flex flex-row gap-4 text-[10px] sm:text-[12px] uppercase tracking-wide font-quicksand `}>
+          <div className="flex flex-row gap-4 text-[10px] sm:text-[12px] uppercase tracking-wide font-quicksand">
             <a  
               href="mailto:hello@himanshubalani.com"  
               rel="noopener noreferrer"  
@@ -183,8 +192,8 @@ export default function BottomBar() {
               rel="noopener noreferrer"  
               className="text-[#8c8c8c] hover:text-black transition-colors"  
             >  
-+              X  
-+            </a>  
+             X  
+          </a>  
           </div>
         </div>
       </div>
