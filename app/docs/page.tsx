@@ -9,6 +9,7 @@ import {
   SimpleCard,
   CodeBlock,
   Polaroid,
+  ProgressBar,
 } from '../../components';
 import { AppColors } from '../../constants';
 import Sidebar from '../../components/Sidebar';
@@ -66,6 +67,7 @@ export default function Docs() {
               {id: 'codeblocks', label: 'Code Block'},
               {id: 'polaroid', label: 'Image Polaroid'},
               {id: 'sidebar', label: 'SideBar'},
+              {id: 'progressbar', label:'Progress Bar'},
 
             ].map((item) => (
               <li key={item.id}>
@@ -89,7 +91,7 @@ export default function Docs() {
       {/* Main Content */}
       <main className="flex-1 min-w-0">
         
-        <Section id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links">
+        <Section id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links. Supported URIs: 'http:', 'https:', 'mailto:','file:', 'ftp:','tel:', 'imap:'">
           <PreviewBox>
             <AnchorButton label="Open in Github" color={AppColors.github} url='https://github.com/himanshubalani/nb8' />
             <AnchorButton label="Docs" color={AppColors.darkPurple} onClick={() => {}} />
@@ -108,12 +110,15 @@ export default function Docs() {
             <Button width="w-40" height="h-16" color={AppColors.lightPink}>
               Click Me
             </Button>
-            <Button width="w-40" height="h-16" color={AppColors.lightPeach}>
+            <Button width="w-40" height="h-12" color={AppColors.lightPeach}>
               Projects
             </Button>
           </PreviewBox>
           <CodeBlock language='js' code={`<Button width="w-40" height="h-16" color={AppColors.lightPink}>
   Click Me
+</Button>
+<Button width="w-40" height="h-12" color={AppColors.lightPeach}>
+  Projects
 </Button>`} />
         </Section>
 
@@ -204,16 +209,16 @@ color={AppColors.paleYellow}
         </Section>
 
         <Section id='codeblocks' title='Code Blocks' description='Used for displaying code snippets. '>
-            <CodeBlock language='html' code={`<p>
-This is a CodeBlock. This is how your code will look. You can specify a language as well.
-</p>`} />
-        </Section>
-
         <Section id='polaroid' title='Image Polaroid' description='Show beautiful images in a polaoid'>
               <PreviewBox>
                 <Polaroid src='https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg' alt='Polaroid Example'/>
                 </PreviewBox>
-                <CodeBlock language='js' code={`<Polaroid src='https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg' alt='Polaroid Example`} />
+                <CodeBlock language='js' code={`<Polaroid src='https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg' alt='Polaroid Example' />`} />
+        </Section>
+              <PreviewBox>
+                <Polaroid src='https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg' alt='Polaroid Example'/>
+                </PreviewBox>
+                <CodeBlock language='js' code={`<Polaroid src='https://img3.stockfresh.com/files/n/nyul/m/16/623420_stock-photo-portrait-of-happy-old-man.jpg' alt='Polaroid Example' />`} />
         </Section>
                 <Section id='sidebar' title='Side Bar' description='A side menu bar made for simplicity'>
               <PreviewBox>
@@ -244,6 +249,22 @@ This is a CodeBlock. This is how your code will look. You can specify a language
 />`} />
         </Section>
 
+        <Section id='progressbar' title='ProgressBar' description='Get feedback in form of Progress'>
+          <PreviewBox>
+          <ProgressBar 
+  value={75} 
+  progressColor="#f48372ff" 
+  height={24}
+  ></ProgressBar>
+          </PreviewBox>
+          <CodeBlock language='js' code='{`<ProgressBar 
+  value={75} 
+  progressColor="#f472b6" 
+  height={32}
+/>`}' />
+        
+        </Section>
+          
       </main>
     </div>
   );

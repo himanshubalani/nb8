@@ -6,7 +6,7 @@ import { useRouter } from './lib/router-context';
 
 export const Header = () => {
   const { path } = useRouter();
-  const headerpath = path === '/' ? '' : '/docs'
+  const headerpath = path === '/' ? '' : '/docs';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b-[3px] border-black shadow-neo-sm h-16 md:h-20">
@@ -17,7 +17,7 @@ export const Header = () => {
           href="/"
           className="cursor-pointer font-outfit text-xl md:text-3xl font-black tracking-tight hover:scale-105 transition-transform"
         >
-          NB<span style={{color:AppColors.deepSaffron}}> 8 </span><span className="font-thin">{headerpath}</span>
+          nb<span style={{color:AppColors.deepSaffron}}> 8 </span><span className="font-thin">{headerpath}</span>
         </Link>
 
         {/* Links */}

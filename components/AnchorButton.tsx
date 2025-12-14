@@ -25,6 +25,17 @@ export const AnchorButton: React.FC<AnchorButtonProps> = ({
 
   const handleClick = () => {
     if (url) {
+      // Validate URL scheme to prevent javascript: and data: URLs  
+      try {  
+        const urlObj = new URL(url, window.location.origin);  
+        if (!['http:', 'https:', 'mailto:','file:', 'ftp:','tel:', 'imap:'].includes(urlObj.protocol)) {  
+          console.error('Invalid URL protocol:', urlObj.protocol);  
+          return;  
+        }  
+      } catch (err) {  
+        console.error('Invalid URL:', url, err);  
+        return;  
+      }  
       window.open(url, '_self'); // use '_blank' if you want new tab
       return;
     }

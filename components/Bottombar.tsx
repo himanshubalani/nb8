@@ -40,7 +40,9 @@ export default function BottomBar() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d")!;
+    const ctx = canvas.getContext("2d");
+    let animationId: number;
+    if (!ctx) return;
     const resize = () => {
       canvas.width = canvas.clientWidth;
       canvas.height = canvas.clientHeight;
@@ -132,11 +134,15 @@ export default function BottomBar() {
       }
 
       requestAnimationFrame(draw);
+      animationId = requestAnimationFrame(draw);
     };
 
     draw();
 
-    return () => window.removeEventListener("resize", resize);
+    return () => {  
++      window.removeEventListener("resize", resize);  
++      cancelAnimationFrame(animationId);  
++    };  
   }, []);
 
   const year = new Date().getFullYear();
@@ -163,20 +169,22 @@ export default function BottomBar() {
           </p>
 
           <div className={`flex flex-row gap-4 text-[10px] sm:text-[12px] uppercase tracking-wide font-quicksand `}>
-            {[
-              { label: "Email", href: "mailto:hello@himanshubalani.com" },
-              { label: "•", href: " "},
-              { label: "X", href: "https://x.com/himanshubalani5" },
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                className="text-[#8c8c8c] hover:text-black transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
+            <a  
+              href="mailto:hello@himanshubalani.com"  
+              target="_blank"  
+              className="text-[#8c8c8c] hover:text-black transition-colors"  
+            >  
+              Email  
+            </a>  
+           <span className="text-[#8c8c8c]">•</span>  
+            <a  
+              href="https://x.com/himanshubalani5"  
+              target="_blank"  
+              rel="noopener noreferrer"  
+              className="text-[#8c8c8c] hover:text-black transition-colors"  
+            >  
++              X  
++            </a>  
           </div>
         </div>
       </div>
