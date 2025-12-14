@@ -140,9 +140,9 @@ export default function BottomBar() {
     draw();
 
     return () => {  
-+      window.removeEventListener("resize", resize);  
-+      cancelAnimationFrame(animationId);  
-+    };  
+      window.removeEventListener("resize", resize);  
+      cancelAnimationFrame(animationId);  
+    };  
   }, []);
 
   const year = new Date().getFullYear();
