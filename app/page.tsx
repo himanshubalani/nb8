@@ -108,7 +108,7 @@ export default function Home() {
           
           <div className="flex flex-col items-center gap-2">
              <span className="font-outfit font-bold text-sm">Or install it now:</span>
-             <CodeBlock code="npx nb8 add" language="bash" copy={true} />
+             <CodeBlock code="npx nb8 init" language="bash" copy={true} />
           </div>
         </div>
       </section>

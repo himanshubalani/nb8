@@ -119,7 +119,7 @@ export default function Docs() {
       {/* Main Content */}
       <main className="flex-1 min-w-0">
         
-        <Section label='AnchorButton' id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links. Supported URIs: 'http:', 'https:', 'mailto:','tel:'">
+        <Section label='anchor-button' id="anchorbuttons" title="Anchor Buttons" description="For buttons with external links. Supported URIs: 'http:', 'https:', 'mailto:','tel:'">
           <PreviewBox>
             <AnchorButton label="Open in Github" color={AppColors.github} url='https://github.com/himanshubalani/nb8' />
             <AnchorButton label="Docs" color={AppColors.darkPurple} onClick={() => {}} />
@@ -133,7 +133,7 @@ export default function Docs() {
 `} />
         </Section>
 
-        <Section label='Button' id="buttons" title="Buttons" description="Simple buttons">
+        <Section label='button' id="buttons" title="Buttons" description="Simple buttons">
           <PreviewBox>
             <Button width="w-40" height="h-16" color={AppColors.lightPink}>
               Click Me
@@ -150,7 +150,7 @@ export default function Docs() {
 </Button>`} />
         </Section>
 
-        <Section id="boxes" label="Box" title="Box" description="A browser container with a header bar.">
+        <Section id="boxes" label="box" title="Box" description="A browser container with a header bar.">
           <PreviewBox>
             <div className="w-full max-w-md">
               <Box headerText="about me" headerColor={AppColors.coralRed}>
@@ -167,7 +167,7 @@ export default function Docs() {
 </Box>`} />
         </Section>
 
-        <Section id="badges" label="Badge" title="Badges" description="Small tags for skills, languages, or status.">
+        <Section id="badges" label="badge" title="Badges" description="Small tags for skills, languages, or status.">
           <PreviewBox>
             <Badge text="React" size='lg' />
             <Badge text="TypeScript" />
@@ -180,7 +180,7 @@ export default function Docs() {
 <Badge text="Design" size="sm" />`} />
         </Section>
 
-        <Section id="projectcards" label="ProjectCard"  title="Project Cards" description="Complex card component with image, description and action.">
+        <Section id="projectcards" label="project-card"  title="Project Cards" description="Complex card component with image, description and action.">
           <PreviewBox>
             <ProjectCard 
               projectName="NeoBrutal"
@@ -201,7 +201,7 @@ export default function Docs() {
 />`} />
         </Section>
 
-        <Section id="simplecards" label="SimpleCard" title="Simple Cards" description="Used for work experience or history.">
+        <Section id="simplecards" label="simple-card" title="Simple Cards" description="Used for work experience or history.">
           <PreviewBox>
             <div className="w-full max-w-md">
               <SimpleCard 
@@ -236,7 +236,7 @@ color={AppColors.paleYellow}
 />`} />
         </Section>
 
-        <Section id='codeblocks' label="CodeBlock" title='Code Blocks' description='Used for displaying code snippets.'>
+        <Section id='codeblocks' label="code-block" title='Code Blocks' description='Used for displaying code snippets.'>
 +          <PreviewBox>
 +            <CodeBlock language='html' code='<p>
 This is a CodeBlock. You can specify the programming language and a button to copy the code as well
@@ -250,14 +250,14 @@ This is a CodeBlock for CodeBlock. Refer this to know how to add this component.
                 </PreviewBox>
                 </Section>
 
-        <Section id='polaroid' label="Polaroid" title='Image Polaroid' description='Show beautiful images in a polaroid'>
+        <Section id='polaroid' label="polaroid" title='Image Polaroid' description='Show beautiful images in a polaroid'>
               <PreviewBox>
                 <Polaroid src='https://picsum.photos/600/400' alt='Polaroid Example'/>
                 </PreviewBox>
                 <CodeBlock language='js' code={`<Polaroid src='https://picsum.photos/600/400' alt='Polaroid Example' />`} />
         </Section>
 
-                <Section id='sidebar' label="Sidebar"  title='Side Bar' description='A side menu bar made for simplicity'>
+                <Section id='sidebar' label="sidebar"  title='Side Bar' description='A side menu bar made for simplicity'>
               <PreviewBox>
                 <Sidebar
   title="Components"
@@ -286,7 +286,7 @@ This is a CodeBlock for CodeBlock. Refer this to know how to add this component.
 />`} />
         </Section>
 
-        <Section id='progressbar'  label="ProgressBar" title='ProgressBar' description='Get feedback in form of Progress'>
+        <Section id='progressbar'  label="progress-bar" title='ProgressBar' description='Get feedback in form of Progress'>
           <PreviewBox>
           <ProgressBar 
   value={75} 
