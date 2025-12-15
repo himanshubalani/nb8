@@ -1,8 +1,8 @@
 import React from 'react';
 import { Header } from '../components/Header';
-// import BottomBar from '../components/Bottombar';
 import { AppColors } from '../constants';
 import BottomBar from '../components/Bottombar';
+import { Analytics } from "@vercel/analytics/next"
 
 /**
  * Root layout component that provides the global page structure for all routes.
@@ -18,22 +18,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen text-[#121212] font-public"
-    style={{ backgroundColor: AppColors.lightLavender }}
-    >
-      {/* Navigation Bar extracted to Header component to isolate useRouter context usage */}
-      <Header />
+    <html lang="en">
+      <body
+        className="min-h-screen text-[#121212] font-public"
+        style={{ backgroundColor: AppColors.lightLavender }}
+      >
+        <Header />
 
-      {/* Spacer for fixed header */}
-      <div className="h-20 md:h-24"></div>
+        <div className="h-20 md:h-24" />
 
-      {/* Page Content */}
-      <main>
-        {children}
-      </main>
+        <main>{children}</main>
 
-      {/* Footer */}
-      <BottomBar/>
-    </div>
+        <BottomBar />
+
+        <Analytics />
+      </body>
+    </html>
   );
 }

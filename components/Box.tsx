@@ -10,7 +10,7 @@ interface BoxProps {
 }
 
 const BoxCircle = () => (
-  <div className="w-6 h-6 ml-2 rounded-full border-2 border-black bg-white/75" />
+  <div className="w-5 h-5 ml-1 rounded-full border-2 border-black bg-white/75 transition-transform duration-200 ease-in hover:-translate-y-3" />
 );
 
 export const Box: React.FC<BoxProps> = ({ 

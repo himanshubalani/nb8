@@ -54,7 +54,7 @@ const Section = ({ id, title, label, description, children }: SectionProps) => (
 );
 
 const PreviewBox = ({ children }: { children: React.ReactNode }) => (
-  <div className="bg-gray-50 border-2 border-black rounded-xl p-8 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
+  <div className="bg-gray-50 border-2 border-black rounded-xl p-6 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
     {children}
   </div>
 );
@@ -252,9 +252,9 @@ This is a CodeBlock for CodeBlock. Refer this to know how to add this component.
 
         <Section id='polaroid' label="polaroid" title='Image Polaroid' description='Show beautiful images in a polaroid'>
               <PreviewBox>
-                <Polaroid src='https://picsum.photos/600/400' alt='Polaroid Example'/>
+                <Polaroid src='https://picsum.photos/300/400' alt='Polaroid Example'/>
                 </PreviewBox>
-                <CodeBlock language='js' code={`<Polaroid src='https://picsum.photos/600/400' alt='Polaroid Example' />`} />
+                <CodeBlock language='js' code={`<Polaroid src='https://picsum.photos/300/400' alt='Polaroid Example' />`} />
         </Section>
 
                 <Section id='sidebar' label="sidebar"  title='Side Bar' description='A side menu bar made for simplicity'>
