@@ -12,9 +12,7 @@ I’ve added the local development instructions to the README **after submission
 For judging purposes, you can refer to this [commit](https://github.com/himanshubalani/nb8/tree/e7ccc57839744cd6b2a35eba1022a2ffb8ecd043), which represents the **final PR before the submission deadline**.
  
 ---
-NB8 is a React component library that loosely follows the rules of neobrutalism design. Components as seem in [himanshubalani.com](https://himanshubalani.com). Built with TypeScript and styled with neobrutalism principles, it provides a set of reusable UI components that can be easily integrated into your projects.
-
-As seen on [himanshubalani.com](https://himanshubalani.com).
+NB8 is a React component library that loosely follows the rules of neobrutalism design. Components as seem in [himanshubalani.com](https://himanshubalani.com). Built with TypeScript, it provides a set of reusable UI components that can be easily integrated into your projects.
 
 ## Features
 
