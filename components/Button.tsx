@@ -37,7 +37,7 @@ export const Button: React.FC<ButtonProps> = ({
       `}
       style={{ backgroundColor: color }}
     >
-      <span className="font-outfit font-bold text-lg md:text-xl p-4">
+      <span className="font-outfit font-bold text-base md:text-lg lg:text-xl p-3 md:p-4">
         {children}
       </span>
     </div>

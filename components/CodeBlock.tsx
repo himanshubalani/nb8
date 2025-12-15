@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { AppColors } from '../constants';
+import { Copy } from 'lucide-react';
 
 export const CodeBlock = ({
   code,
@@ -31,9 +32,9 @@ export const CodeBlock = ({
       className="
         relative mt-3
         rounded-lg border-2 border-black
-        p-4
+        p-3 md:p-4
         shadow-neo-sm
-        min-w-[20vw]
+        w-full
         overflow-visible
       "
       style={{ backgroundColor: AppColors.white }}
@@ -42,10 +43,10 @@ export const CodeBlock = ({
       {language && (
         <div
           className="
-            absolute -top-3 left-3
+            absolute -top-3 left-2 md:left-3
             z-10
             px-2 py-1
-            text-sm font-semibold
+            text-xs md:text-sm font-semibold
             rounded-md border border-black
             bg-white
             select-none
@@ -60,21 +61,22 @@ export const CodeBlock = ({
         <button
           onClick={handleCopy}
           className="
-            absolute -top-2 -right-3
+            absolute -top-2 md:-top-2 -right-2 md:-right-3
             z-10
             px-2 py-1
-            text-md font-semibold
+            text-xs md:text-sm font-semibold
             rounded-md border border-black
             bg-white hover:bg-gray-100
             shadow-neo-sm hover:shadow-neo
             transition
           "
         >
+          {/* <Copy size={16}/> */}
           {copied ? 'Copied' : 'Copy'}
         </button>
       )}
 
-      <pre className="font-mono text-md text-black whitespace-pre text-wrap">
+      <pre className="pr-10 font-mono text-xs md:text-sm text-black whitespace-pre-wrap break-words">
         {code}
       </pre>
 

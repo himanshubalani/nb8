@@ -49,7 +49,7 @@ export const AnchorButton: React.FC<AnchorButtonProps> = ({
       className={`
         ${fullWidth ? 'w-full' : 'w-auto'}
         flex items-center justify-between
-        px-4 py-3
+        px-3 py-2 md:px-4 md:py-3
         rounded-[18px] border-[3px] border-black
         font-quicksand font-bold
         ${isDark ? 'text-white' : 'text-black'}
@@ -59,9 +59,9 @@ export const AnchorButton: React.FC<AnchorButtonProps> = ({
       `}
       style={{ backgroundColor: color }}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2 md:gap-3">
         {icon && (
-          <span className="w-5 h-5 flex items-center justify-center">
+          <span className="w-4 h-4 md:w-5 md:h-5 flex items-center justify-center">
             {icon}
           </span>
         )}
@@ -70,7 +70,7 @@ export const AnchorButton: React.FC<AnchorButtonProps> = ({
 
       <div
         className={`
-          w-6 h-6 rounded-full border-2 border-black ml-4
+          w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-black ml-2 md:ml-4
           ${isDark ? 'bg-white/70' : 'bg-white opacity-50'}
         `}
       />

@@ -25,10 +25,10 @@ export const Box: React.FC<BoxProps> = ({
     >
       {/* Header */}
       <div
-        className="w-full p-3 border-b-2 border-black flex items-center justify-between"
+        className="w-full p-2 md:p-3 border-b-2 border-black flex items-center justify-between"
         style={{ backgroundColor: headerColor }}
       >
-        <span className="font-outfit font-bold text-black text-lg md:text-xl truncate">
+        <span className="font-outfit font-bold text-black text-base md:text-lg lg:text-xl truncate">
           {headerText}
         </span>
         <div className="flex">
@@ -41,12 +41,13 @@ export const Box: React.FC<BoxProps> = ({
       {/* Content */}
       <div
         className="
-          p-4 bg-white h-full
+          p-3 md:p-4 lg:p-5 bg-white h-full
           [&_img]:border-2
           [&_img]:border-black
           [&_img]:rounded-lg
           [&_img]:mt-2
           [&_img]:max-w-full
+          [&_img]:h-auto
         "
       >
         {children}
