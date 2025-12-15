@@ -1,6 +1,6 @@
 # NB8 - NeoBrutal UI Component Library
 
-[![License](https://img.shields.io/badge/license-GNUPublic-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-GNU_GPLv3-blue.svg)](LICENSE)
 
 This is my submission for [AI Agents Assemble Hackathon by WeMakeDevs.](https://www.wemakedevs.org/hackathons/assemblehack25)
 
