@@ -94,18 +94,17 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
         {/* Pill on the right end with percentage */}
         {showPercentage && (
           <div 
-            className="absolute flex items-center justify-center font-bold"
+            className="absolute flex items-center justify-center font-bold text-xs md:text-sm"
             style={{
-              right: '-8px',
+              right: '-6px',
               top: '50%',
               transform: 'translateY(-50%)',
               backgroundColor: baseColor,
               border: `${borderWidth}px solid ${borderColor}`,
               borderRadius: '18px',
-			  minHeight: '40px',
-              padding: '4px 16px',
-              minWidth: '60px',
-              fontSize: '14px',
+			  minHeight: '32px',
+              padding: '2px 10px',
+              minWidth: '50px',
               zIndex: 3
             }}
           >

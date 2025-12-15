@@ -36,8 +36,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#combine
+#misc
 combine*
+*.md
 
 # Package dependencies
 packages/*/node_modules/

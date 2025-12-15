@@ -34,12 +34,12 @@ const Sidebar: React.FC<SidebarProps> = ({
   activeItemClassName = '',
 }) => {
   return (
-    <aside className={`${widthClass} flex-shrink-0`}>
+    <aside className={`hidden lg:block ${widthClass} flex-shrink-0`}>
       <div
-        className={`sticky bg-white border-[3px] border-black rounded-xl p-4 overflow-y-auto max-h-[80vh] ${containerClassName}`}
+        className={`sticky bg-white border-[3px] border-black rounded-xl p-3 md:p-4 overflow-y-auto max-h-[80vh] ${containerClassName}`}
         style={{ top: stickyTop }}
       >
-        <h4 className="font-outfit font-bold text-lg mb-4 uppercase tracking-wider border-b-2 border-black pb-2">
+        <h4 className="font-outfit font-bold text-base md:text-lg mb-3 md:mb-4 uppercase tracking-wider border-b-2 border-black pb-2">
           {title}
         </h4>
 
@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 <button
                   onClick={() => onItemClick(item.id)}
                   className={`
-                    w-full text-left px-3 py-2 rounded-lg border-2 font-bold text-sm transition-all
+                    w-full text-left px-2 md:px-3 py-2 rounded-lg border-2 font-bold text-xs md:text-sm transition-all
                     ${
                       isActive
                         ? `bg-black text-white border-black translate-x-[2px] translate-y-[2px] ${activeItemClassName}`
