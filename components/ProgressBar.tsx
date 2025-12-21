@@ -61,7 +61,8 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
             border: `${borderWidth}px solid ${borderColor}`,
             borderRadius: '16px',
             zIndex: 2,
-            transition: animated ? 'width 0.3s ease' : 'none'
+            transition: animated ? 'width 0.3s ease' : 'none',  
+            overflow: 'visible'
           }}
         >
           {/* Percentage Box */}

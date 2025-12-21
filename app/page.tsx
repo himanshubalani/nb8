@@ -8,7 +8,7 @@ import { AnchorButton, Button, Browser, CodeBlock, Badge, Polaroid} from '../com
 import { useRouter } from 'next/navigation';
 import { ArrowRight, Box, Zap, LayoutTemplate, Palette } from 'lucide-react';
 import { AppColors } from '@/constants';
-import './globals.css';
+
 
 const RotatingStar = () => (
   <svg 

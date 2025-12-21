@@ -26,7 +26,7 @@ const Polaroid = React.forwardRef<HTMLDivElement, PolaroidProps>(
             src={src}
             alt={alt}
             className="object-contain w-full h-auto"
-            style={{ maxHeight, maxWidth: '100%' }}
+            style={{ maxHeight, maxWidth: maxWidth ?? '100%' }}
           />
         </div>
       </div>
