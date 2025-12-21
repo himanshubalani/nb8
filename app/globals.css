@@ -1,0 +1,37 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  --font-outfit: var(--font-outfit);
+  --font-quicksand: var(--font-quicksand);
+  --font-public: var(--font-public);
+
+  /* Neo-Brutal Shadows (Tailwind v4 Variables) */
+  --shadow-neo: 4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-neo-sm: 2px 2px 0px 0px rgba(0,0,0,1);
+  --shadow-neo-lg: 8px 8px 0px 0px rgba(0,0,0,1);
+}
+
+/* Base Styles */
+body {
+  background-color: #F0F4F7;
+  color: #121212;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f9fa;
+  border-left: 2px solid #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border: 2px solid #000;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #90a8ed;
+}

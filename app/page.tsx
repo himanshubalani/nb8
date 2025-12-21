@@ -1,14 +1,14 @@
 // app/page.tsx
 
+// TODO: ADD SHADOWS BACK IN COMPONENTS
+
 'use client';
 
-import { AppColors } from '../constants';
-import { Button } from '../components/Button';
-import { Badge } from '../components/Badge';
-import { CodeBlock } from '../components/CodeBlock';
-import { Polaroid } from '../components/Polaroid';
-import { useRouter } from '../components/lib/router-context';
+import { AnchorButton, Button, Browser, CodeBlock, Badge, Polaroid} from '../components';
+import { useRouter } from 'next/navigation';
 import { ArrowRight, Box, Zap, LayoutTemplate, Palette } from 'lucide-react';
+import { AppColors } from '@/constants';
+
 
 const RotatingStar = () => (
   <svg 
@@ -70,7 +70,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-24 relative overflow-hidden">
+    <div className="w-full max-w-350 mx-auto px-4 md:px-8 py-12 md:py-20 flex flex-col gap-24 relative overflow-hidden">
       
       {/* --- HERO SECTION --- */}
       <section className="relative flex flex-col items-center text-center z-10 mt-8">
@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* --- BOTTOM CTA --- */}
       <section className="flex justify-center mb-10">
-        <div className="bg-white border-[4px] border-black p-8 md:p-12 rounded-[2rem] shadow-neo-lg text-center max-w-3xl w-full relative">
+        <div className="bg-white border-4 border-black p-8 md:p-12 rounded-4xl shadow-neo-lg text-center max-w-3xl w-full relative">
             {/* Corner Decoration */}
             <div className="absolute -top-6 -left-6 w-12 h-12 bg-black rounded-full border-4 border-white" />
             <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-black rounded-full border-4 border-white" />

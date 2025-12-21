@@ -62,7 +62,7 @@ Since the package hasn't been published to npm yet, follow these steps for local
 7. **Add components:**
    ```bash
    npx nb8 add button
-   npx nb8 add box
+   npx nb8 add browser
    # Add any component you need
    ```
 
@@ -77,7 +77,7 @@ Since the package hasn't been published to npm yet, follow these steps for local
 
 - **AnchorButton** - Styled anchor tag button
 - **Badge** - Small status indicator
-- **Box** - Basic container component
+- **Browser** - Basic container component
 - **Button** - Primary button component
 - **CodeBlock** - Syntax-highlighted code display
 - **Polaroid** - Photo frame styled component
@@ -89,15 +89,15 @@ Since the package hasn't been published to npm yet, follow these steps for local
 ### Example Usage
 
 ```tsx
-import { Button, Box } from './nb8/components';
+import { Button, Browser } from './nb8/components';
 
 function App() {
   return (
-    <Box>
+    <Browser>
       <Button onClick={() => console.log('Clicked!')}>
         Click Me!
       </Button>
-    </Box>
+    </Browser>
   );
 }
 ```

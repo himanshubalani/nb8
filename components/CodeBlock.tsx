@@ -1,86 +1,63 @@
 'use client';
 
 import React, { useState } from 'react';
-import { AppColors } from '../constants';
-import { Copy } from 'lucide-react';
+import { cn } from '@/app/utils/cn';
+import { AppColors } from '@/constants';
 
-export const CodeBlock = ({
-  code,
-  language,
-  copy = true,
-  children,
-}: {
+interface CodeBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   code: string;
   language?: string;
   copy?: boolean;
-  children?: React.ReactNode;
-}) => {
-  const [copied, setCopied] = useState(false);
+}
 
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1500);
-    } catch(err) {
-      console.warn('Copy to clipboard failed:', err);
-    }
-  };
+const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
+  ({ className, code, language, copy = true, children, ...props }, ref) => {
+    const [copied, setCopied] = useState(false);
 
-  return (
-    <div
-      className="
-        relative mt-3
-        rounded-lg border-2 border-black
-        p-3 md:p-4
-        shadow-neo-sm
-        w-full
-        overflow-visible
-      "
-      style={{ backgroundColor: AppColors.white }}
-    >
-      {/* Language badge — top-left */}
-      {language && (
-        <div
-          className="
-            absolute -top-3 left-2 md:left-3
-            z-10
-            px-2 py-1
-            text-xs md:text-sm font-semibold
-            rounded-md border border-black
-            bg-white
-            select-none
-          "
-        >
-          {language}
-        </div>
-      )}
+    const handleCopy = async () => {
+      try {
+        await navigator.clipboard.writeText(code);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 1500);
+      } catch(err) {
+        console.warn('Copy to clipboard failed:', err);
+      }
+    };
 
-      {/* Copy button — top-right */}
-      {copy && (
-        <button
-          onClick={handleCopy}
-          className="
-            absolute -top-2 md:-top-2 -right-2 md:-right-3
-            z-10
-            px-2 py-1
-            text-xs md:text-sm font-semibold
-            rounded-md border border-black
-            bg-white hover:bg-gray-100
-            shadow-neo-sm hover:shadow-neo
-            transition
-          "
-        >
-          {/* <Copy size={16}/> */}
-          {copied ? 'Copied' : 'Copy'}
-        </button>
-      )}
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          "relative mt-3 rounded-lg border-2 border-black p-3 md:p-4 shadow-neo-sm w-full overflow-visible",
+          className
+        )}
+        style={{ backgroundColor: AppColors.white }}
+        {...props}
+      >
+        {language && (
+          <div className="absolute -top-3 left-2 md:left-3 z-10 px-2 py-1 text-xs md:text-sm font-semibold rounded-md border border-black bg-white select-none">
+            {language}
+          </div>
+        )}
 
-      <pre className="pr-10 font-mono text-xs md:text-sm text-black whitespace-pre-wrap break-words">
-        {code}
-      </pre>
+        {copy && (
+          <button
+            onClick={handleCopy}
+            className="absolute -top-2 md:-top-2 -right-2 md:-right-3 z-10 px-2 py-1 text-xs md:text-sm font-semibold rounded-md border border-black bg-white hover:bg-gray-100 shadow-neo-sm hover:shadow-neo transition"
+          >
+            {copied ? 'Copied' : 'Copy'}
+          </button>
+        )}
 
-      {children}
-    </div>
-  );
-};
+        <pre className="pr-10 font-mono text-xs md:text-sm text-black whitespace-pre-wrap wrap-break-word">
+          {code}
+        </pre>
+        {children}
+      </div>
+    );
+  }
+);
+
+CodeBlock.displayName = "CodeBlock";
+
+export { CodeBlock };
