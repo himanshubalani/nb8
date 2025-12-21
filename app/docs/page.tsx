@@ -135,7 +135,7 @@ export default function Docs() {
 
         <Section label='button' id="buttons" title="Buttons" description="Simple buttons">
           <PreviewBox>
-            <Button darkMode={false} shadows={true} width="w-40" height="h-16" color={AppColors.lightPink}>
+            <Button shadows={true} width="w-40" height="h-16" color={AppColors.lightPink}>
               Click Me
             </Button>
             <Button width="w-40" height="h-12" color={AppColors.lightPeach}>

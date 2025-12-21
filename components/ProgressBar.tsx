@@ -64,6 +64,7 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
             transition: animated ? 'width 0.3s ease' : 'none'
           }}
         >
+          {/* Percentage Box */}
           {showPercentage && (
             <div 
               className="absolute flex items-center justify-center font-bold text-xs md:text-sm"
@@ -74,9 +75,12 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
                 backgroundColor: baseColor,
                 border: `${borderWidth}px solid ${borderColor}`,
                 borderRadius: '18px',
-                minHeight: '32px',
+                minHeight: progressHeight *1.3,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
                 padding: '2px 10px',
-                minWidth: '50px',
+                minWidth: '75px',
                 zIndex: 3
               }}
             >

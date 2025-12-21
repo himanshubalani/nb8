@@ -49,7 +49,7 @@ const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
           </button>
         )}
 
-        <pre className="pr-10 font-mono text-xs md:text-sm text-black whitespace-pre-wrap break-words">
+        <pre className="pr-10 font-mono text-xs md:text-sm text-black whitespace-pre-wrap wrap-break-word">
           {code}
         </pre>
         {children}

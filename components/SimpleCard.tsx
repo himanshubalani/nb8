@@ -3,7 +3,7 @@
 import React from 'react';
 import { cn } from '@/app/utils/cn';
 
-export interface SimpleCardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SimpleCardProps extends React.HTMLAttributes<HTMLElement> {
   company: string;
   role: string;
   duration: string;
@@ -12,7 +12,7 @@ export interface SimpleCardProps extends React.HTMLAttributes<HTMLDivElement> {
   link?: string;
 }
 
-const SimpleCard = React.forwardRef<HTMLDivElement, SimpleCardProps>(
+const SimpleCard = React.forwardRef<HTMLElement, SimpleCardProps>(
   ({ className, company, role, duration, tech, color, link, ...props }, ref) => {
     
     const content = (
@@ -34,13 +34,13 @@ const SimpleCard = React.forwardRef<HTMLDivElement, SimpleCardProps>(
 
     if (link) {
       return (
-        <a href={link} target="_blank" rel="noreferrer" className="block w-full no-underline text-black mb-3 md:mb-4" ref={ref as any} {...props}>
+        <a href={link} target="_blank" rel="noreferrer" className="block w-full no-underline text-black mb-3 md:mb-4" ref={ref as React.Ref<HTMLAnchorElement>} {...props}>
           {content}
         </a>
       );
     }
 
-    return <div className="mb-3 md:mb-4" ref={ref} {...props}>{content}</div>;
+    return <div className="mb-3 md:mb-4" ref={ref as React.Ref<HTMLDivElement>} {...props}>{content}</div>;
   }
 );
 
