@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import { 
+import {
   AnchorButton,
-  Box,
+  Browser,
   Button,
   Badge,
   ProjectCard,
@@ -10,9 +10,9 @@ import {
   CodeBlock,
   Polaroid,
   ProgressBar,
+  Sidebar,
 } from '../../components';
 import { AppColors } from '../../constants';
-import Sidebar from '../../components/Sidebar';
 
 
 
@@ -54,7 +54,7 @@ const Section = ({ id, title, label, description, children }: SectionProps) => (
 );
 
 const PreviewBox = ({ children }: { children: React.ReactNode }) => (
-  <div className="bg-gray-50 border-2 border-black rounded-xl p-6 flex flex-wrap gap-6 items-center justify-center min-h-[150px]">
+  <div className="bg-gray-50 border-2 border-black rounded-xl p-6 flex flex-wrap gap-6 items-center justify-center min-h-37.5">
     {children}
   </div>
 );
@@ -79,7 +79,7 @@ export default function Docs() {
     <div className="flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto p-4 md:p-8">
       
       {/* Sidebar */}
-      <aside className="lg:w-64 flex-shrink-0">
+      <aside className="lg:w-64 shrink-0">
         <div className="sticky top-24 bg-white border-[3px] border-black rounded-xl p-4 overflow-y-auto max-h-[80vh]">
           <h4 className="font-outfit font-bold text-lg mb-4 uppercase tracking-wider border-b-2 border-black pb-2">
             Components
@@ -88,7 +88,7 @@ export default function Docs() {
             {[
               { id: 'anchorbuttons', label: 'AnchorButton' },
               { id: 'buttons', label: 'Button' },
-              { id: 'boxes', label: 'Box' },
+              { id: 'browsers', label: 'Browser' },
               { id: 'badges', label: 'Badge' },
               { id: 'projectcards', label: 'ProjectCard' },
               { id: 'simplecards', label: 'SimpleCard' },
@@ -103,7 +103,7 @@ export default function Docs() {
                   onClick={() => scrollTo(item.id)}
                   className={`w-full text-left px-3 py-2 rounded-lg border-2 font-bold text-sm transition-all
                     ${activeSection === item.id 
-                      ? 'bg-black text-white border-black  translate-x-[2px] translate-y-[2px]' 
+                      ? 'bg-black text-white border-black  translate-x-0.5 translate-y-0.5' 
                       : 'bg-gray-50 text-black border-transparent hover:bg-[#90a8ed] hover:border-black'
                     }
                   `}
@@ -135,7 +135,7 @@ export default function Docs() {
 
         <Section label='button' id="buttons" title="Buttons" description="Simple buttons">
           <PreviewBox>
-            <Button width="w-40" height="h-16" color={AppColors.lightPink}>
+            <Button darkMode={false} shadows={true} width="w-40" height="h-16" color={AppColors.lightPink}>
               Click Me
             </Button>
             <Button width="w-40" height="h-12" color={AppColors.lightPeach}>
@@ -150,21 +150,25 @@ export default function Docs() {
 </Button>`} />
         </Section>
 
-        <Section id="boxes" label="box" title="Box" description="A browser container with a header bar.">
+        <Section id="browsers" label="browser" title="Browser" description="A browser container with a header bar.">
           <PreviewBox>
             <div className="w-full max-w-md">
-              <Box headerText="about me" headerColor={AppColors.coralRed}>
+              <Browser headerText="about me" headerColor={AppColors.coralRed} hover={true}>
                 <p className="font-outfit text-sm">
                   I'm a Neo-Brutalist component living in a React world.
-                  This box handles its own overflow and styling. Images work too. 
+                  This box handles its own overflow and styling. Images work too.
                 </p>
                 <img src="https://picsum.photos/500" alt="Example image" />
-              </Box>
+              </Browser>
             </div>
           </PreviewBox>
-          <CodeBlock language='js' code={`<Box headerText="about me" headerColor="#FFFF7A5C">
-  <p>Content goes here...</p>
-</Box>`} />
+          <CodeBlock language='js' code={`<Browser headerText="about me" headerColor={AppColors.coralRed} hover={true}>
+                <p className="font-outfit text-sm">
+                  I'm a Neo-Brutalist component living in a React world.
+                  This box handles its own overflow and styling. Images work too.
+                </p>
+                <img src="https://picsum.photos/500" alt="Example image" />
+              </Browser>`} />
         </Section>
 
         <Section id="badges" label="badge" title="Badges" description="Small tags for skills, languages, or status.">
@@ -264,7 +268,7 @@ This is a CodeBlock for CodeBlock. Refer this to know how to add this component.
   items={[
     { id: 'anchorbuttons', label: 'Anchor Buttons' },
     { id: 'buttons', label: 'Buttons' },
-    { id: 'boxes', label: 'Box' },
+    { id: 'browsers', label: 'Browser' },
     { id: 'badges', label: 'Badges' },
     {id: 'sidebar', label: 'Side Bar'}
     ]}
@@ -277,7 +281,7 @@ This is a CodeBlock for CodeBlock. Refer this to know how to add this component.
   items={[
     { id: 'anchorbuttons', label: 'Anchor Buttons' },
     { id: 'buttons', label: 'Buttons' },
-    { id: 'boxes', label: 'Box' },
+    { id: 'boxes', label: 'Browser' },
     { id: 'badges', label: 'Badges' },
     {id: 'sidebar', label: 'Side Bar'}
     ]}

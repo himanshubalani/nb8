@@ -1,4 +1,4 @@
-export * from './Box';
+export * from './Browser';
 export * from './AnchorButton';
 export * from './Button';
 export * from './Badge';

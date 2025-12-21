@@ -8,7 +8,7 @@ const COMPONENT_MAP: Record<string, string> = {
   "button": "Button.tsx",
   "anchor-button": "AnchorButton.tsx",
   "badge": "Badge.tsx",
-  "box": "Box.tsx",
+  "browser": "Browser.tsx",
   "project-card": "ProjectCard.tsx",
   "simple-card": "SimpleCard.tsx",
   "code-block": "CodeBlock.tsx",

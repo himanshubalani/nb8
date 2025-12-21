@@ -1,12 +1,12 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { AppColors } from '../constants';
-import { Link } from './Link';
-import { useRouter } from './lib/router-context';
+import Link from 'next/link';
 
 export const Header = () => {
-  const { path } = useRouter();
-  const headerpath = path === '/' ? '' : '/docs';
+  const pathname = usePathname();
+  const headerpath = pathname === '/' ? '' : '/docs';
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b-[3px] border-black shadow-neo-sm h-16 md:h-20">
@@ -25,15 +25,15 @@ export const Header = () => {
           <li>
             <Link 
               href="/"
-              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/' ? 'text-black' : 'text-gray-500'}`}
-            >
+              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${pathname === '/' ? 'text-black' : 'text-gray-500'}`}
+            > 
               Home
             </Link>
           </li>
           <li>
             <Link 
               href="/docs"
-              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${path === '/docs' ? 'text-black' : 'text-gray-500'}`}
+              className={`font-bold text-sm md:text-lg hover:underline decoration-2 underline-offset-4 ${pathname === '/docs' ? 'text-black' : 'text-gray-500'}`}
             >
               Docs
             </Link>
