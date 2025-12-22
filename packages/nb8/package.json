@@ -2,6 +2,10 @@
   "name": "nb8",
   "version": "1.0.0",
   "description": "CLI for NeoBrutal UI",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "bin": {
     "nb8": "./bin/nb8.js"
   },
